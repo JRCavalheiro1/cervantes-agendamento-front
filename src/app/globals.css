@@ -18,6 +18,7 @@
 
     --color-preto-400: #2C2C2C;
     --color-preto-700: #000000;
+    --colro-bg-overlay: #00000045;
 
     --color-azul-100: #82BFE426;
     --color-azul-200: #82BFE44C;
@@ -150,5 +151,13 @@
   }
   body {
     @apply bg-background text-foreground;
+    @apply font-inter;
+    @apply text-preto-400;
   }
+}
+
+@media (max-width: 402px) {
+    .responsive-width {
+        width: 100px;
+    }
 }
