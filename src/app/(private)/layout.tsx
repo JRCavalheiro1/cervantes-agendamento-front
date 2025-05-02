@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import NavMenu from "@/components/layout/NavMenu";
+import ContainerMain from "@/components/layout/Container";
+
 import "../globals.css";
+
 
 
 const interSans = Inter({
@@ -22,12 +25,16 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body
-        className={`${interSans.variable} flex items-center justify-between antialiased h-screen bg-branco-300 text-preto-400`}
+        className={`${interSans.variable} bg-branco-300 text-preto-400`}
       >
+      <div className="flex min-h-screen">
         <NavMenu/>
-        <main className="w-full h-full">
-            {children}
-        </main>
+        <div className="flex-1">
+            <ContainerMain>
+                {children}
+            </ContainerMain>
+        </div>
+      </div>
       </body>
     </html>
   );

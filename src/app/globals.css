@@ -34,6 +34,8 @@
     --color-amarelo-600: #A48724;
 
     --color-vermelho-300: #FB2E2E;
+
+    --p-large: 1.125rem;
 }
 
 @theme inline {
@@ -157,7 +159,10 @@
 }
 
 @media (max-width: 402px) {
-    .responsive-width {
-        width: 100px;
+    main {
+        display: flex;
+        flex-direction: column;
+        margin-top: 60px;
+        padding: 16px;
     }
 }
