@@ -9,7 +9,7 @@ type InfoCardProps = {
 
 export default function InfoCard({icone, descricao, total}: InfoCardProps) {
     return (
-        <div className="flex flex-col justify-center bg-branco-100 w-[315px] h-[200px] rounded-[20px] p-[20px]">
+        <div className="flex flex-col justify-center bg-branco-100 rounded-[20px] p-[1.25rem]">
             <div className="flex items-center">
                 {icone}
                 <span className="text-[1.125]">{descricao}</span>

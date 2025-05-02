@@ -1,13 +1,15 @@
 import Header from "@/components/layout/Header";
 import InfoCard from "@/app/(private)/(paginaInicial)/components/InfoCard";
 import { Check, TrendUp, CalendarBlank, Clock } from "@phosphor-icons/react/dist/ssr";
+import ListaProfissionaisDashboard from "@/app/(private)/(paginaInicial)/components/ListaProfissionaisDashboard";
 
 
 export default function PaginaInicial() {
   return (
-      <div className="border-black border-1">
+      <div className="grid grid-rows-[auto-1fr] gap[25px] h-screen">
           <Header titulo="Página Inicial"/>
-          <div className="flex gap-[20px] flex-wrap">
+
+          <div className="grid grid-cols-4 gap-[15px]">
               <InfoCard
                 icone={<Check size={55}/>}
                 descricao="Agendamentos Hoje"
@@ -30,6 +32,10 @@ export default function PaginaInicial() {
               />
           </div>
 
+        <div className="flex pt-[25px]">
+            <ListaProfissionaisDashboard/>
+
+        </div>
 
       </div>
   );

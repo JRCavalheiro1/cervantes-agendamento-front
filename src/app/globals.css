@@ -7,6 +7,23 @@
 @theme {
     --font-inter: Inter, sans-serif;
 
+    --text-numero-infoCard: 2.5rem; /* 40px */
+    --text-titulo: 2rem; /* 32px */
+    --text-titulo-menu: 1.75rem; /* 28px */
+    --text-titulo-card: 1.5rem; /* 24px */
+    --text-titulo-card-2: 1.25rem; /* 20px */
+
+    --text-texto-card: 1.125rem; /* 18px */
+    --text-texto-form: 1rem; /* 16px */
+    --text-texto-status: 0.875rem; /* 14px */
+
+    --p-info-card: 1.25rem; /* 20px */;
+    --pb-bottom-card: 2rem;
+    --pr-menu-card: 1.25rem;
+    --p-info-big-card: 1.875rem; /* 30px */;
+    --p-itens-card: 0.5rem; /* 8px */;
+
+
     --color-branco-100: #FFFFFF;
     --color-branco-200: #F1F2F666;
     --color-branco-300: #F1F2F6;
@@ -41,8 +58,7 @@
 @theme inline {
     --color-background: var(--background);
     --color-foreground: var(--foreground);
-    --font-sans: var(--font-geist-sans);
-    --font-mono: var(--font-geist-mono);
+    --font-inter: var(--font-inter);
     --color-sidebar-ring: var(--sidebar-ring);
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);

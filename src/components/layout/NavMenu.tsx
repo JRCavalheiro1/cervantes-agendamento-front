@@ -43,17 +43,17 @@ export default function NavMenu() {
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
             />
 
-        <div className={`${isMenuOpen ? 'block' : 'hidden'} md:block w-[270px] min-h-screen bg-branco-100 pl-[16px] pr-[16px]`}>
-            <div className="pb-[32px] pt-[32px]">
-                <h1 className="text-[1.75rem] font-bold">BarberOne</h1>
+        <div className={`${isMenuOpen ? 'block' : 'hidden'} md:block w-[16.875rem] min-h-screen bg-branco-100 pl-5 pr-5`}>
+            <div className="pb-[2rem] pt-[2rem]">
+                <h1 className="text-titulo-menu font-bold">BarberOne</h1>
             </div>
 
             <div>
-                <ul className="flex flex-col gap-[1.875rem] text-cinza-500 text-[1.125rem]">
+                <ul className="flex flex-col gap-[1.875rem] text-cinza-500 text-texto-card">
                     {menuItens.map((item) => {
                         return (
                             <li key={item.id} className="hover:text-azul-400 transition duration-0.3">
-                                <Link href={`/${item.link}`} className="flex gap-[0.313rem]">
+                                <Link href={`/${item.link}`} className="flex gap-1.5">
                                     {item.icone}
                                     {item.titulo}
                                 </Link>
