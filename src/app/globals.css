@@ -24,6 +24,7 @@
     --p-itens-card: 0.5rem; /* 8px */;
 
 
+
     --color-branco-100: #FFFFFF;
     --color-branco-200: #F1F2F666;
     --color-branco-300: #F1F2F6;
@@ -35,7 +36,7 @@
 
     --color-preto-400: #2C2C2C;
     --color-preto-700: #000000;
-    --colro-bg-overlay: #00000045;
+    --color-preto-100: #00000045;
 
     --color-azul-100: #82BFE426;
     --color-azul-200: #82BFE44C;
@@ -174,11 +175,4 @@
   }
 }
 
-@media (max-width: 402px) {
-    main {
-        display: flex;
-        flex-direction: column;
-        margin-top: 60px;
-        padding: 16px;
-    }
-}
+
