@@ -25,14 +25,14 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body
-        className={`${interSans.variable} w-full flex bg-branco-300 `}
+        className={`${interSans.variable} w-full flex bg-branco-300`}
       >
-      <div className=" border-black border-1 min-w-[402px] w-full min-h-screen flex flex-col pl-[25px] pr-[25px] md:flex-row md:pl-0">
+      <div className="border-black border-1 min-w-[402px] w-full min-h-screen flex flex-col pl-[25px] pr-[25px]
+      md:flex-row md:pl-0">
+
         <NavMenu/>
-        <div className="flex-1">
-            <ContainerMain>
+        <div className="md:w-full md:mx-auto md:px-5 ">
                 {children}
-            </ContainerMain>
         </div>
       </div>
       </body>
