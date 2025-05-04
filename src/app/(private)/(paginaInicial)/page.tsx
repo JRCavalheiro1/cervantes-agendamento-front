@@ -1,7 +1,7 @@
 import Header from "@/components/layout/Header";
 import InfoCard from "@/app/(private)/(paginaInicial)/components/InfoCard";
 import { Check, TrendUp, CalendarBlank, Clock } from "@phosphor-icons/react/dist/ssr";
-import ListaProfissionaisDashboard from "@/app/(private)/(paginaInicial)/components/ListaProfissionaisDashboard";
+import ListaProfissionaisDashboard from "@/app/(private)/(paginaInicial)/components/listaProfissionaisAtivos/ListaProfissionaisDashboard";
 
 
 export default function PaginaInicial() {
@@ -9,7 +9,7 @@ export default function PaginaInicial() {
       <div className="">
           <Header titulo="Página Inicial"/>
 
-          <div className="">
+          <div className="grid grid-cols-1 gap-[20px]">
             <div className="grid grid-cols-2 gap-[10px]
              xl:grid-cols-4
             ">
@@ -29,12 +29,14 @@ export default function PaginaInicial() {
                     total="134"
                 />
                 <InfoCard
-                    icone={<Clock size="40" weight="fill"/>}
+                    icone={<Clock size="40" weight="fill" color="#ffffff"/>}
                     descricao="Tempo Médio de Serviço"
                     total="42min"
+                    cardAzul={true}
                 />
             </div>
 
+              <ListaProfissionaisDashboard/>
           </div>
       </div>
   );
