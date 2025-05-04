@@ -57,8 +57,8 @@ export default function NavMenu() {
 
             {modalAberto && <Backdrop onClick={()=> setModalAberto(false)}/>}
 
-            <div className={`top-0 left-0 w-[200px] min-h-screen bg-branco-100 pl-5 pr-5 z-50 transform transition-transform duration-300 erase-in-out
-            fixed md:static 
+            <div className={`top-0 left-0 w-[200px] h-screen bg-branco-100 pl-5 pr-5 z-50 transform transition-transform duration-300 erase-in-out
+            fixed md:static md:h-full
             ${modalAberto ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 md:block md:w-[300px]`}>
                 <div className="h-[80px] flex items-center">
                     <h1 className="text-titulo-card-2 font-bold md:text-titulo-menu-md">BarberOne</h1>

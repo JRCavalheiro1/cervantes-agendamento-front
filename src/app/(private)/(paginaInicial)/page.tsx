@@ -2,14 +2,15 @@ import Header from "@/components/layout/Header";
 import InfoCard from "@/app/(private)/(paginaInicial)/components/InfoCard";
 import { Check, TrendUp, CalendarBlank, Clock } from "@phosphor-icons/react/dist/ssr";
 import ListaProfissionaisDashboard from "@/app/(private)/(paginaInicial)/components/listaProfissionaisAtivos/ListaProfissionaisDashboard";
+import ListaAgendamentosRecentes from "@/app/(private)/(paginaInicial)/components/listaAgendamentosRecentes/ListaAgendamentosRecentes";
 
 
 export default function PaginaInicial() {
   return (
-      <div className="">
+      <div className="flex flex-col">
           <Header titulo="Página Inicial"/>
 
-          <div className="grid grid-cols-1 gap-[20px]">
+          <div className="flex flex-col gap-[20px] w-full">
             <div className="grid grid-cols-2 gap-[10px]
              xl:grid-cols-4
             ">
@@ -35,8 +36,10 @@ export default function PaginaInicial() {
                     cardAzul={true}
                 />
             </div>
-
-              <ListaProfissionaisDashboard/>
+            <div className="flex flex-col gap-[20px] xl:flex-row xl:w-full" >
+                <ListaProfissionaisDashboard/>
+                <ListaAgendamentosRecentes/>
+            </div>
           </div>
       </div>
   );
