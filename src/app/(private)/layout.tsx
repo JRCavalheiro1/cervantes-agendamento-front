@@ -8,8 +8,10 @@ import "../globals.css";
 
 
 const interSans = Inter({
-    variable: "--font-inter",
     subsets: ["latin"],
+    weight: ['400', '500', '600', '700'],
+    display: "swap",
+    variable: "--font-inter"
 });
 
 export const metadata: Metadata = {
@@ -23,10 +25,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-br">
-      <body
-        className={`${interSans.variable} w-full flex bg-branco-300`}
-      >
+    <html lang="pt-br" className={interSans.variable} >
+      <body className="w-full flex bg-branco-300">
       <div className="border-black border-1 min-w-[402px] w-full min-h-screen flex flex-col pl-[25px] pr-[25px]
       md:flex-row md:pl-0">
 

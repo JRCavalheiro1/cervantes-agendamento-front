@@ -9,7 +9,7 @@ type InfoCardProps = {
 
 export default function InfoCard({icone, descricao, total, cardAzul}: InfoCardProps) {
     return (
-        <div className={`flex flex-col justify-center gap-[10px] h-[120px]  rounded-[20px] p-[10px]
+        <div className={`flex flex-col justify-center gap-[10px] h-[120px]  rounded-[20px] p-[20px]
             md:p-[20px] xl:h-[200px] cursor-pointer ${cardAzul ? 'bg-azul-500' : 'bg-branco-100'}`}>
             <div className="flex items-center gap-[5px]">
                 {icone}
