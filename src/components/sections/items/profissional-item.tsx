@@ -1,7 +1,7 @@
 import { NotePencil } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import { ProfissionalProps } from "@/data/profissionais";
-import {ShowStatus} from "@/app/(private)/(paginaInicial)/components/ShowStatus";
+import {ShowStatus} from "@/components/ui/show-status";
 
 interface ProfissionalItemProps extends ProfissionalProps  {
     onClick?: ()=> void;
@@ -14,7 +14,7 @@ export default function ProfissionalItem({
     horarios,
     }: ProfissionalItemProps) {
     return (
-        <div className="flex items-center justify-between text-texto-card-sm
+        <div className="flex items-center justify-between text-texto-card-sm p-[5px]
             md:text-texto-card-xl
         ">
             <div className="flex gap-[10px]">

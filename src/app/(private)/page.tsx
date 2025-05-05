@@ -1,8 +1,8 @@
 import Header from "@/components/layout/Header";
-import InfoCard from "@/app/(private)/(paginaInicial)/components/InfoCard";
+import InfoCard from "@/components/sections/home/cards/info-card";
 import { Check, TrendUp, CalendarBlank, Clock } from "@phosphor-icons/react/dist/ssr";
-import ListaProfissionaisDashboard from "@/app/(private)/(paginaInicial)/components/listaProfissionaisAtivos/ListaProfissionaisDashboard";
-import ListaAgendamentosRecentes from "@/app/(private)/(paginaInicial)/components/listaAgendamentosRecentes/ListaAgendamentosRecentes";
+import ListaProfissionais from "@/components/sections/listas/lista-profissionais";
+import ListaAgendamentosRecentes from "@/components/sections/listas/lista-agendamentos-recentes";
 
 
 export default function PaginaInicial() {
@@ -37,7 +37,7 @@ export default function PaginaInicial() {
                 />
             </div>
             <div className="flex flex-col gap-[20px] xl:flex-row xl:w-full" >
-                <ListaProfissionaisDashboard/>
+                <ListaProfissionais/>
                 <ListaAgendamentosRecentes/>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import Header from "@/components/layout/Header";
 
-export default function PaginaConfiguracoes() {
+export default function Configuracoes() {
     return (
         <div>
             <Header titulo={"Configurações"}/>

@@ -1,5 +1,5 @@
-import ListaContainer from "@/app/(private)/(paginaInicial)/components/ListaContainer";
-import ItemAgendamento from "@/components/sections/ItemAgendamento";
+import ListaContainer from "@/components/sections/listas/lista-container";
+import AgendamentoItem from "@/components/sections/items/agendamento-item";
 import { agendamentos } from "@/data/agendamentos";
 
 export default function ListaAgendamentosRecentes() {
@@ -8,12 +8,12 @@ export default function ListaAgendamentosRecentes() {
            {agendamentos.map((agendamento) => {
                return (
                    <li key={agendamento.id}>
-                       <ItemAgendamento
+                       <AgendamentoItem
                            nomeCliene={agendamento.nomeCliene}
                            servico={agendamento.servico}
                            profissional={agendamento.profissional}
                            horario={agendamento.horario}
-                           status={agendamento.status} />
+                           status={agendamento.status}/>
                    </li>
                )
            })}

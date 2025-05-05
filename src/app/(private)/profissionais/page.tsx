@@ -1,6 +1,6 @@
 import Header from "@/components/layout/Header";
 
-export default function PaginaProfissionais() {
+export default function Profissionais() {
     return (
         <div>
             <Header titulo={"Profissionais"}/>

@@ -1,7 +1,7 @@
 'use client';
 
 import Link from "next/link";
-import { House, Toolbox, UsersFour, Gear, List } from "@phosphor-icons/react/dist/ssr";
+import { House, CalendarBlank, Toolbox, UsersFour, Gear, List } from "@phosphor-icons/react/dist/ssr";
 import { useState } from "react";
 import { Backdrop } from "@/components/backdrop/Backdrop";
 
@@ -14,25 +14,31 @@ export default function NavMenu() {
             id: 1,
             icone: <House size={24} weight="fill"/>,
             titulo: "Página Inicial",
-            link: '/'
+            link: "/"
         },
         {
             id: 2,
             icone: <Toolbox size={24} weight="fill"/>,
             titulo: "Serviços",
-            link: 'servicos',
+            link: "servicos",
         },
         {
             id: 3,
             icone: <UsersFour size={24} weight="fill"/>,
             titulo: "Profissionais",
-            link: 'profissionais'
+            link: "profissionais"
         },
         {
             id: 4,
+            icone: <CalendarBlank size={24} weight="fill"/>,
+            titulo: "Agendamentos",
+            link: "agendamentos",
+        },
+        {
+            id: 5,
             icone: <Gear size={24} weight="fill"/>,
             titulo: "Configurações",
-            link: 'configuracoes'
+            link: "configuracoes"
         },
     ]
 

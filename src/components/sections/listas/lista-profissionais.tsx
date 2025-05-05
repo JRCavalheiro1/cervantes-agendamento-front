@@ -1,8 +1,8 @@
-import ProfissionalItem from "@/components/sections/ProfissionalItem";
+import ProfissionalItem from "@/components/sections/items/profissional-item";
 import { profissionais } from "@/data/profissionais";
-import ListaContainer from "@/app/(private)/(paginaInicial)/components/ListaContainer";
+import ListaContainer from "@/components/sections/listas/lista-container";
 
-export default function ListaProfissionaisDashboard() {
+export default function ListaProfissionais() {
     return (
        <ListaContainer titulo="Profissionais Ativos" subtitulo="Lista de profissionais ativos" className="min-w-[352px] xl:flex-1">
            {profissionais.map((item)=> {
