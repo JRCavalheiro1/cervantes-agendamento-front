@@ -20,13 +20,6 @@
     --text-texto-card-sm: 0.813rem; /* 13px */
     --text-texto-lista: 0.75rem; /* 12px */
 
-    --p-info-card: 1.25rem; /* 20px */;
-    --pb-bottom-card: 2rem;
-    --pr-menu-card: 1.25rem;
-    --p-info-big-card: 1.875rem; /* 30px */;
-    --p-itens-card: 0.5rem; /* 8px */;
-
-
 
     --color-branco-100: #FFFFFF;
     --color-branco-200: #F1F2F666;
@@ -41,6 +34,7 @@
     --color-preto-700: #000000;
     --color-preto-100: #00000045;
 
+    --color-azul-50: #f6f5f5;
     --color-azul-100: #82BFE426;
     --color-azul-200: #82BFE44C;
     --color-azul-300: #82BFE4;
@@ -54,8 +48,9 @@
     --color-amarelo-100: #FFEAA4CC;
     --color-amarelo-600: #A48724;
 
+    --color-vermelho-100: #f69f9f;
     --color-vermelho-300: #FB2E2E;
-
+    --color-vermelho-600: #5a0404;
     --p-large: 1.125rem;
 }
 

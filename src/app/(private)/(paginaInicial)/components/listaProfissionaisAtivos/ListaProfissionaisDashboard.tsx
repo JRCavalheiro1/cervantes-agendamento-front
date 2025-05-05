@@ -1,5 +1,5 @@
-import CardProfissional from "@/components/sections/CardProfissional";
-import {profissionais} from "@/data/profissionais";
+import ProfissionalItem from "@/components/sections/ProfissionalItem";
+import { profissionais } from "@/data/profissionais";
 import ListaContainer from "@/app/(private)/(paginaInicial)/components/ListaContainer";
 
 export default function ListaProfissionaisDashboard() {
@@ -8,7 +8,7 @@ export default function ListaProfissionaisDashboard() {
            {profissionais.map((item)=> {
                return (
                    <li key={item.id}>
-                       <CardProfissional
+                       <ProfissionalItem
                            fotoPerfil={item.fotoPerfil}
                            nome={item.nome}
                            horarios={item.horarios}
