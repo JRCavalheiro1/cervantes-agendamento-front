@@ -1,0 +1,19 @@
+{
+  "HomePage": {
+    "title": "Página Inicial",
+    "infoCards": [
+      {
+        "description": "Schedule Today"
+      },
+      {
+        "description": "Schedule This Week"
+      },
+      {
+        "description": "Schedule This Month"
+      },
+      {
+        "description": "Average service time"
+      }
+    ]
+  }
+}

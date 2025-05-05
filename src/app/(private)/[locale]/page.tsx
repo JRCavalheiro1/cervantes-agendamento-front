@@ -4,11 +4,14 @@ import { Check, TrendUp, CalendarBlank, Clock } from "@phosphor-icons/react/dist
 import ListaProfissionais from "@/components/sections/listas/lista-profissionais";
 import ListaAgendamentosRecentes from "@/components/sections/listas/lista-agendamentos-recentes";
 
+import { useTranslations } from "next-intl";
+
 
 export default function PaginaInicial() {
+    const translation = useTranslations('HomePage');
   return (
       <div className="flex flex-col">
-          <Header titulo="Página Inicial"/>
+          <Header titulo={translation("title")}/>
 
           <div className="flex flex-col gap-[20px] w-full">
             <div className="grid grid-cols-2 gap-[10px]
