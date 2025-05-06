@@ -10,6 +10,12 @@
   "HomePage": {
     "title": "Página Inicial"
   },
+  "InfoCard": {
+    "appointmentsToday": "Agendamentos Hoje",
+    "appointmentsWeek": "Agendamentos Semana",
+    "appointmentsMonth": "Agendamentos Mês",
+    "averageServiceTime": "Tempo Médio de Serviço"
+  },
   "ProfessionalList":{
     "title": "Profissionais Ativos",
     "subtitle": "Profissionais disponíves hoje"
