@@ -5,7 +5,7 @@ import { House, CalendarBlank, Toolbox, UsersFour, Gear, List, SignOut } from "@
 import { useState } from "react";
 import { Backdrop } from "@/components/backdrop/Backdrop";
 import { useTranslations } from "next-intl";
-import DropdownMenuIdioma from "@/components/layout/dropdown-menu-idioma";
+import SelecionaIdioma from "@/components/layout/seleciona-idioma";
 
 export default function NavMenu() {
     const [modalAberto, setModalAberto] = useState<boolean>(false);
@@ -68,7 +68,7 @@ export default function NavMenu() {
             <div className={`top-0 left-0 flex flex-col w-[200px] h-full bg-branco-100 p-5 z-50 transform transition-transform duration-300 erase-in-out
             fixed md:static md:h-full md:flex md:flex-col
             ${modalAberto ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 md:block md:w-[300px]`}>
-                <div className="h-[70px] border-black border-1 flex ">
+                <div className="h-[70px] flex">
                     <h1 className="text-titulo-card-2 font-bold md:text-titulo-menu-md">BarberOne</h1>
                 </div>
 
@@ -87,7 +87,7 @@ export default function NavMenu() {
                     </ul>
 
                     <ul className="flex flex-col gap-[10px]">
-                        <DropdownMenuIdioma/>
+                        <SelecionaIdioma/>
                         <li className="flex items-center w-fit cursor-pointer text-texto-card-xl text-cinza-300 hover:text-vermelho-100 ">{translationNav("logoutLink")} <SignOut width={24}/></li>
                     </ul>
 

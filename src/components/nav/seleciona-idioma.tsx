@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
+import { useParams, usePathname } from "next/navigation";
+
 
 import {
     DropdownMenu,
@@ -14,12 +16,18 @@ import {
 
 export default function SelecionaIdioma() {
     const translationSelectLanguage = useTranslations('SelectLanguage');
+    const { locale } = useParams();
+
+    function getPathName (path: string, locale: string) {
+        return '';
+    };
+
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
                 <div className="border-cinza-100 border-1 flex gap-[5px] w-fit rounded-[8px] cursor-pointer px-[5px] py-[3px] text-cinza-500 hover:bg-azul-50  transition duration-200">
                     <span>🇧🇷</span>
-                    <span>português</span>
+                    <span>{locale}</span>
                 </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start" >
