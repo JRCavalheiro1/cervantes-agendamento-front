@@ -1,4 +1,4 @@
-import Header from "@/components/layout/Header";
+import Header from "@/components/layout/header";
 import InfoCard from "@/components/sections/home/cards/info-card";
 import { Check, TrendUp, CalendarBlank, Clock } from "@phosphor-icons/react/dist/ssr";
 import ListaProfissionais from "@/components/sections/listas/lista-profissionais";
@@ -15,7 +15,7 @@ export default function PaginaInicial() {
           <Header titulo={tranlationHeader('title')}/>
 
           <div className="flex flex-col gap-[20px] w-full">
-            <div className="grid grid-cols-2 gap-[10px]
+            <div className="grid grid-cols-2 gap-[20px]
              xl:grid-cols-4
             ">
                <InfoCard

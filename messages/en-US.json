@@ -33,5 +33,10 @@
   },
   "Services": {
     "title": "Services"
+  },
+  "SelectLanguage": {
+    "selectALanguage": "Select a language",
+    "portuguese": "portuguese",
+    "english": "english"
   }
 }
