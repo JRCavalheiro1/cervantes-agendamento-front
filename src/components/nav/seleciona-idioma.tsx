@@ -33,8 +33,8 @@ export default function SelecionaIdioma() {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <div className="border-cinza-100 border-1 flex items-center gap-[5px] w-fit rounded-[8px] cursor-pointer px-[5px] py-[3px] text-cinza-500 hover:bg-azul-50  transition duration-200">
-                    {isDefaultLocale ? <Image src={flag["pt-BR"]} alt="flag" width={16} height={11}/> : <Image src={flag["en-US"]} alt="flag" width={16} height={11}/> }
+                <div className="border-cinza-100 border-1 flex items-center gap-[5px] w-fit rounded-[8px] cursor-pointer px-[5px] py-[3px] text-cinza-500 hover:bg-azul-50 transition duration-200">
+                    <Image src={isDefaultLocale ? flag["pt-BR"] : flag["en-US"]} alt="flag" width={16} height={11}/>
                     <span>{isDefaultLocale ? translationSelectLanguage("portuguese") : translationSelectLanguage("english")}</span>
                 </div>
             </DropdownMenuTrigger>
@@ -50,7 +50,6 @@ export default function SelecionaIdioma() {
                         </DropdownMenuItem>
                     )
                 })}
-
             </DropdownMenuContent>
         </DropdownMenu>
     )
