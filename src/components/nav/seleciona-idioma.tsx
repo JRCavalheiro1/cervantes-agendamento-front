@@ -3,8 +3,9 @@
 import { useTranslations } from "next-intl";
 import { useParams, usePathname } from "next/navigation";
 import {locales, flag} from "@/components/nav/locales";
+import {routing} from "@/i18n/routing";
 import Link from "next/link";
-
+import Image from "next/image";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -12,9 +13,6 @@ import {
     DropdownMenuLabel,
     DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu"
-import Image from "next/image";
-import {routing} from "@/i18n/routing";
-
 
 
 export default function SelecionaIdioma() {
