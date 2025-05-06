@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { useParams, usePathname } from "next/navigation";
-import {locales} from "@/components/nav/locales";
+import {locales, flag} from "@/components/nav/locales";
 import Link from "next/link";
 
 import {
@@ -12,6 +12,8 @@ import {
     DropdownMenuLabel,
     DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu"
+import Image from "next/image";
+import {routing} from "@/i18n/routing";
 
 
 
@@ -20,29 +22,31 @@ export default function SelecionaIdioma() {
     const { locale } = useParams();
 
     const pathName = usePathname();
-     console.log(getPathName("pt-BR"));
+    const isDefaultLocale = locale === routing.defaultLocale;
 
-    function getPathName (locale: string) {
-        const path = pathName.split("/");
-        const newPath = path.slice(2).join("/");
-
-        return "/" + locale + "/" + newPath;
+     function getPathName (language: string) {
+        const path = pathName.split("/" + locale).join("");
+        console.log("/" + language + path);
+        return "/" + language + path;
     };
 
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <div className="border-cinza-100 border-1 flex gap-[5px] w-fit rounded-[8px] cursor-pointer px-[5px] py-[3px] text-cinza-500 hover:bg-azul-50  transition duration-200">
-                    <span>🇧🇷</span>
-                    <span>{locale}</span>
+                <div className="border-cinza-100 border-1 flex items-center gap-[5px] w-fit rounded-[8px] cursor-pointer px-[5px] py-[3px] text-cinza-500 hover:bg-azul-50  transition duration-200">
+                    {isDefaultLocale ? <Image src={flag["pt-BR"]} alt="flag" width={16} height={11}/> : <Image src={flag["en-US"]} alt="flag" width={16} height={11}/> }
+                    <span>{isDefaultLocale ? translationSelectLanguage("portuguese") : translationSelectLanguage("english")}</span>
                 </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start" >
                 <DropdownMenuLabel>{translationSelectLanguage("selectALanguage")}</DropdownMenuLabel>
-                {locales.map((locale) => {
+                {locales.map((localeItem) => {
                     return (
-                        <DropdownMenuItem key={locale.code} >
-                            <Link className="w-full" href={getPathName(locale.code)}>{locale.code}</Link>
+                        <DropdownMenuItem key={localeItem.code} >
+                            <Link className="w-full flex gap-[5px]" href={getPathName(localeItem.code)}>
+                                <Image src={localeItem.flag} alt="flag" width={16} height={11}/>
+                                {localeItem.code === routing.defaultLocale ? translationSelectLanguage("portuguese") : translationSelectLanguage("english") }
+                            </Link>
                         </DropdownMenuItem>
                     )
                 })}
