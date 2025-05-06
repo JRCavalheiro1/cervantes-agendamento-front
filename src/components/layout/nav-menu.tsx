@@ -4,40 +4,41 @@ import Link from "next/link";
 import { House, CalendarBlank, Toolbox, UsersFour, Gear, List } from "@phosphor-icons/react/dist/ssr";
 import { useState } from "react";
 import { Backdrop } from "@/components/backdrop/Backdrop";
-
+import { useTranslations } from "next-intl";
 
 export default function NavMenu() {
     const [modalAberto, setModalAberto] = useState<boolean>(false);
+    const translationNav = useTranslations("NavMenu");
 
     const menuItens = [
         {
             id: 1,
             icone: <House size={24} weight="fill"/>,
-            titulo: "Página Inicial",
+            titulo: `${translationNav("homePageLink")}`,
             link: "/"
         },
         {
             id: 2,
             icone: <Toolbox size={24} weight="fill"/>,
-            titulo: "Serviços",
+            titulo: `${translationNav("serviceLink")}`,
             link: "servicos",
         },
         {
             id: 3,
             icone: <UsersFour size={24} weight="fill"/>,
-            titulo: "Profissionais",
+            titulo: `${translationNav("professionalLink")}`,
             link: "profissionais"
         },
         {
             id: 4,
             icone: <CalendarBlank size={24} weight="fill"/>,
-            titulo: "Agendamentos",
+            titulo: `${translationNav("appointmentsLink")}`,
             link: "agendamentos",
         },
         {
             id: 5,
             icone: <Gear size={24} weight="fill"/>,
-            titulo: "Configurações",
+            titulo: `${translationNav("settingsLink")}`,
             link: "configuracoes"
         },
     ]

@@ -8,10 +8,11 @@ import { useTranslations } from "next-intl";
 
 
 export default function PaginaInicial() {
-    const translation = useTranslations('HomePage');
+    const tranlationHeader = useTranslations('HomePage');
+    const tranlationCard = useTranslations('InfoCard');
   return (
       <div className="flex flex-col">
-          <Header titulo={translation("title")}/>
+          <Header titulo={tranlationHeader('title')}/>
 
           <div className="flex flex-col gap-[20px] w-full">
             <div className="grid grid-cols-2 gap-[10px]
@@ -19,22 +20,22 @@ export default function PaginaInicial() {
             ">
                <InfoCard
                    icone={<Check size="40"/>}
-                   descricao="Agendamentos Hoje"
+                   descricao={tranlationCard('appointmentsToday')}
                    total="12"
                />
                 <InfoCard
                     icone={<TrendUp size="40"/>}
-                    descricao="Agendamentos Semana"
+                    descricao={tranlationCard('appointmentsWeek')}
                     total="53"
                 />
                 <InfoCard
                     icone={<CalendarBlank size="40"/>}
-                    descricao="Agendamentos Mês"
+                    descricao={tranlationCard('appointmentsMonth')}
                     total="134"
                 />
                 <InfoCard
                     icone={<Clock size="40" weight="fill" color="#ffffff"/>}
-                    descricao="Tempo Médio de Serviço"
+                    descricao={tranlationCard('averageServiceTime')}
                     total="42min"
                     cardAzul={true}
                 />

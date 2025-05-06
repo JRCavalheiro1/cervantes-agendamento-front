@@ -10,7 +10,7 @@ export interface AgendamentoProps {
 export const agendamentos: AgendamentoProps[] = [
     {
         id: 1,
-        nomeCliene: "Júlio César",
+        nomeCliene: "Júlio Ricardo",
         servico: ["Corte Masculino"],
         profissional: "Kauã",
         horario: "15:00",

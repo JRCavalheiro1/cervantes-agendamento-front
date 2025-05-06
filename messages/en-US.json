@@ -1,19 +1,37 @@
 {
+  "NavMenu": {
+    "homePageLink": "Home Page",
+    "serviceLink": "Services",
+    "professionalLink": "Professionals",
+    "appointmentsLink": "Appointments",
+    "settingsLink": "Settings",
+    "logoutLink": "Logout"
+  },
   "HomePage": {
-    "title": "Home Page",
-    "infoCards": [
-      {
-        "description": "Schedule Today"
-      },
-      {
-        "description": "Schedule This Week"
-      },
-      {
-        "description": "Schedule This Month"
-      },
-      {
-        "description": "Average service time"
-      }
-    ]
+    "title": "Home Page"
+  },
+  "InfoCard": {
+    "appointmentsToday": "Appointments Today",
+    "appointmentsWeek": "Appointments this Week",
+    "appointmentsMonth": "Appointments this Month",
+    "averageServiceTime": "Average service Time"
+  },
+  "ProfessionalList":{
+    "title": "Active Professionals",
+    "subtitle": "Professionals available today"
+  },
+  "Status": {
+    "available": "available",
+    "busy": "busy",
+    "confirmed": "confirmed",
+    "pending": "pending",
+    "canceled": "canceled"
+  },
+  "RecentAppointmentsList": {
+    "title": "Recent Appointments",
+    "subtitle": "Last appointments made"
+  },
+  "Services": {
+    "title": "Services"
   }
 }

@@ -38,10 +38,10 @@ export default async function LocaleLayout({
     <html lang={locale} className={interSans.variable} >
       <body className="w-full flex bg-branco-300">
       <NextIntlClientProvider>
-          <div className="border-black border-1 min-w-[402px] w-full min-h-screen flex flex-col pl-[25px] pr-[25px]
+          <div className="min-w-[402px] w-full min-h-screen flex flex-col pl-[25px] pr-[25px]
           md:flex-row md:pl-0">
             <NavMenu/>
-            <div className="md:w-full md:mx-auto md:px-5 ">
+            <div className="md:w-full md:mx-auto md:px-5">
                 {children}
             </div>
           </div>

@@ -1,19 +1,31 @@
 {
+  "NavMenu": {
+    "homePageLink": "Página Inicial",
+    "serviceLink": "Serviços",
+    "professionalLink": "Profissionais",
+    "appointmentsLink": "Agendamentos",
+    "settingsLink": "Configurações",
+    "logoutLink": "Sair"
+  },
   "HomePage": {
-    "title": "Página Inicial",
-    "infoCards": [
-      {
-        "description": "Schedule Today"
-      },
-      {
-        "description": "Schedule This Week"
-      },
-      {
-        "description": "Schedule This Month"
-      },
-      {
-        "description": "Average service time"
-      }
-    ]
+    "title": "Página Inicial"
+  },
+  "ProfessionalList":{
+    "title": "Profissionais Ativos",
+    "subtitle": "Profissionais disponíves hoje"
+  },
+  "Status": {
+    "available": "disponivel",
+    "busy": "ocupado",
+    "confirmed": "confirmado",
+    "pending": "pendente",
+    "canceled": "cancelado"
+  },
+  "RecentAppointmentsList": {
+    "title": "Agendamentos Recentes",
+    "subtitle": "Últimos agendamentos realizados"
+  },
+  "Services": {
+    "title": "Serviços"
   }
 }

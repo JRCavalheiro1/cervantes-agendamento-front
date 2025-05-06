@@ -1,6 +1,7 @@
 import clsx from "clsx";
 
 type StatusType = "disponivel" | "indisponivel" | "pendente" | "confirmado" | "cancelado";
+
 interface ShowStatusProps {
     status: StatusType;
 };
