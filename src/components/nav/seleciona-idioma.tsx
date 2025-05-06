@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { useParams, usePathname } from "next/navigation";
-
+import {locales} from "@/components/nav/locales";
+import Link from "next/link";
 
 import {
     DropdownMenu,
@@ -14,12 +14,19 @@ import {
 } from "@/components/ui/dropdown-menu"
 
 
+
 export default function SelecionaIdioma() {
-    const translationSelectLanguage = useTranslations('SelectLanguage');
+    const translationSelectLanguage = useTranslations("SelectLanguage");
     const { locale } = useParams();
 
-    function getPathName (path: string, locale: string) {
-        return '';
+    const pathName = usePathname();
+     console.log(getPathName("pt-BR"));
+
+    function getPathName (locale: string) {
+        const path = pathName.split("/");
+        const newPath = path.slice(2).join("/");
+
+        return "/" + locale + "/" + newPath;
     };
 
     return (
@@ -31,9 +38,15 @@ export default function SelecionaIdioma() {
                 </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start" >
-                <DropdownMenuLabel>{translationSelectLanguage('selectALanguage')}</DropdownMenuLabel>
-                <DropdownMenuItem className="cursor-pointer">{translationSelectLanguage('portuguese')}</DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer">{translationSelectLanguage('english')}</DropdownMenuItem>
+                <DropdownMenuLabel>{translationSelectLanguage("selectALanguage")}</DropdownMenuLabel>
+                {locales.map((locale) => {
+                    return (
+                        <DropdownMenuItem key={locale.code} >
+                            <Link className="w-full" href={getPathName(locale.code)}>{locale.code}</Link>
+                        </DropdownMenuItem>
+                    )
+                })}
+
             </DropdownMenuContent>
         </DropdownMenu>
     )

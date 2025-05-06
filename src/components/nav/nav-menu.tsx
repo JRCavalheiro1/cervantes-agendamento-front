@@ -5,7 +5,7 @@ import { House, CalendarBlank, Toolbox, UsersFour, Gear, List, SignOut } from "@
 import { useState } from "react";
 import { Backdrop } from "@/components/backdrop/Backdrop";
 import { useTranslations } from "next-intl";
-import SelecionaIdioma from "@/components/layout/seleciona-idioma";
+import SelecionaIdioma from "@/components/nav/seleciona-idioma";
 
 export default function NavMenu() {
     const [modalAberto, setModalAberto] = useState<boolean>(false);
