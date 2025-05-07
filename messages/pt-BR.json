@@ -34,6 +34,10 @@
   "Services": {
     "title": "Serviços"
   },
+  "ServicesList": {
+    "title": "Serviços",
+    "subtitle": "Lista de serviços da empresa"
+  },
   "SelectLanguage": {
     "selectALanguage": "Selecione um idioma",
     "portuguese": "português",
