@@ -5,6 +5,8 @@ export default function ListaServicos() {
     const listaServicosTranslation = useTranslations("Services");
 
     return (
-       <div></div>
+       <div>
+
+       </div>
     )
 }
