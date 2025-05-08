@@ -8,13 +8,11 @@ import { routing } from "@/i18n/routing";
 
 import "../../globals.css";
 
-
-
 const interSans = Inter({
-    subsets: ["latin"],
-    weight: ['400', '500', '600', '700'],
-    display: "swap",
-    variable: "--font-inter"
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
@@ -24,28 +22,25 @@ export const metadata: Metadata = {
 
 export default async function LocaleLayout({
   children,
-  params
+  params,
 }: {
   children: React.ReactNode;
-  params: Promise<{locale: string}>
+  params: Promise<{ locale: string }>;
 }) {
-    const { locale } = await params;
-    if(!hasLocale(routing.locales, locale)) {
-        notFound();
-    }
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
 
   return (
-    <html lang={locale} className={interSans.variable} >
-      <body className="w-full flex bg-branco-300">
-      <NextIntlClientProvider>
-          <div className="min-w-[402px] w-full min-h-screen flex flex-col pl-[25px] pr-[25px]
-          md:flex-row md:pl-0">
-            <NavMenu/>
-            <div className="md:w-full md:mx-auto md:px-5">
-                {children}
-            </div>
+    <html lang={locale} className={interSans.variable}>
+      <body className="bg-branco-300 text-preto-400 flex w-full">
+        <NextIntlClientProvider>
+          <div className="flex min-h-screen w-full min-w-[402px] flex-col pr-[25px] pl-[25px] md:flex-row md:pl-0">
+            <NavMenu />
+            <div className="md:mx-auto md:w-full md:px-5">{children}</div>
           </div>
-      </NextIntlClientProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );
