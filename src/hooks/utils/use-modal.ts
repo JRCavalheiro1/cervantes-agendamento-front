@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function UseModal<T = any>() {
+export function useModal<T = any>() {
   const [itemSelecionado, setItemSelecionado] = useState<T | null>(null);
   const [modalAberto, setModalAberto] = useState(false);
 
