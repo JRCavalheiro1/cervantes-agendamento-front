@@ -4,7 +4,7 @@ import ProfissionalItem from "@/components/sections/items/profissional-item";
 import { profissionais } from "@/data/profissionais";
 import ListaContainer from "@/components/sections/listas/lista-container";
 import { useTranslations } from "next-intl";
-import ModalProfissional from "@/components/ui/modal-profissional";
+import ModalProfissional from "@/components/ui/modais/modal-profissional";
 import { useModal } from "@/hooks/utils/use-modal";
 
 import { ProfissionalProps } from "@/data/profissionais";
