@@ -31,6 +31,14 @@
     "title": "Agendamentos Recentes",
     "subtitle": "Últimos agendamentos realizados"
   },
+  "ConfirmAppointmentModal": {
+    "title": "Confirmar Agendamento",
+    "nameClient": "Nome",
+    "emailClient": "Email",
+    "service": "Serviço",
+    "nameProfessional": "Profissional",
+    "dateHour": "Data/Hora"
+  },
   "Services": {
     "title": "Serviços"
   },

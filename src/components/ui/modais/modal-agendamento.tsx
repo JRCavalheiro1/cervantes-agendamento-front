@@ -9,6 +9,7 @@ import { Trash } from "@phosphor-icons/react";
 import { ShowStatus } from "@/components/ui/show-status";
 import { AgendamentoProps } from "@/data/agendamentos";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import { useTranslations } from "next-intl";
 
 interface ModalAgendamentoProps {
   agendamento: AgendamentoProps;
@@ -30,6 +31,10 @@ export default function ModalAgendamento({
     hora,
     status,
   } = agendamento;
+
+  const translationModalAgendamento = useTranslations(
+    "ConfirmAppointmentModal",
+  );
   return (
     <Dialog open={open} onOpenChange={onClose}>
       <DialogContent className="min-w-[362px] gap-[20px] rounded-[35px] p-[30px] md:min-w-[420px]">
@@ -39,30 +44,30 @@ export default function ModalAgendamento({
         <DialogHeader>
           <div className="flex items-center justify-between">
             <DialogTitle className="text-titulo-card-2 font-normal">
-              Confirmar Agendamento
+              {translationModalAgendamento("title")}
             </DialogTitle>
             <Trash className="text-cinza-500" size={24} weight="bold" />
           </div>
         </DialogHeader>
         <div className="text-texto-status-md md:text-texto-form flex flex-col gap-[40px]">
           <div className="text- flex justify-between">
-            <span>Nome</span>
+            <span>{translationModalAgendamento("nameClient")}</span>
             <span className="text-cinza-500">{nomeCliente}</span>
           </div>
           <div className="flex justify-between">
-            <span>Email</span>
+            <span>{translationModalAgendamento("emailClient")}</span>
             <span className="text-cinza-500">{emailCliente}</span>
           </div>
           <div className="flex justify-between">
-            <span>Serviço</span>
+            <span>{translationModalAgendamento("service")}</span>
             <span className="text-cinza-500">{servico.join(", ")}</span>
           </div>
           <div className="flex justify-between">
-            <span>Profissional</span>
+            <span>{translationModalAgendamento("nameProfessional")}</span>
             <span className="text-cinza-500">{profissional}</span>
           </div>
           <div className="flex justify-between">
-            <span>Data/Hora</span>
+            <span>{translationModalAgendamento("dateHour")}</span>
             <span className="text-cinza-500">
               {data} - {hora}
             </span>
