@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { ButtonAlter } from "@/components/ui/buttons/button-alter";
 import { Switch } from "@/components/ui/switch";
-import { Label } from "@radix-ui/react-menu";
 import { Input } from "@/components/ui/input";
 import { NotePencil } from "@phosphor-icons/react/dist/ssr";
 import { ShowStatus } from "@/components/ui/show-status";
@@ -33,7 +32,7 @@ export function EditaProfissionalForm() {
 
   return (
     <Form {...form}>
-      <div className="flex flex-col gap-[10px]">
+      <div className="tex flex flex-col gap-[10px] md:gap-[20px]">
         <div className="flex items-center gap-[10px]">
           <div className="border-azul-500 flex h-[75px] w-[75px] items-center justify-center rounded-full border-2 md:h-[110px] md:w-[110px]">
             <Image
@@ -47,15 +46,17 @@ export function EditaProfissionalForm() {
 
           <div className="flex flex-col items-center">
             <ButtonAlter>Alterar Foto</ButtonAlter>
-            <span className="text-texto-lista-sm text-cinza-200">
+            <span className="text-texto-lista-sm text-cinza-200 md:text-texto-lista">
               JPG, PNG ou GIF, Máximo 1MB
             </span>
           </div>
         </div>
         <div className="flex items-center justify-between">
           <div className="boder-black flex flex-col items-start">
-            <h1 className="text-texto-card-xl">Pedro Ricardo</h1>
-            <h2 className="text-texto-status-md text-cinza-500">
+            <h1 className="text-texto-card-xl md:text-titulo-card-sm">
+              Pedro Ricardo
+            </h1>
+            <h2 className="text-texto-status-md md:text-titulo-card-2 text-cinza-500">
               Ativo na Empresa
             </h2>
           </div>
@@ -72,7 +73,7 @@ export function EditaProfissionalForm() {
                     className="data-[state=checked]:bg-azul-500 data-[state=unchecked]:bg-azul-200"
                   />
                 </FormControl>
-                <FormLabel className="text-texto-lista">
+                <FormLabel className="text-texto-lista md:text-texto-form font-normal">
                   Profissional Ativo
                 </FormLabel>
               </FormItem>
@@ -80,17 +81,19 @@ export function EditaProfissionalForm() {
           />
         </div>
       </div>
-
+      <div className="bg-cinza-200 h-px w-full" />
       <div className="flex flex-col gap-[10px]">
         <FormField
           control={form.control}
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-texto-status-md">Nome</FormLabel>
+              <FormLabel className="text-texto-status-md md:text-texto-form font-normal">
+                Nome
+              </FormLabel>
               <FormControl>
                 <Input
-                  className="text-texto-status-md text-cinza-500 h-[42px]"
+                  className="text-cinza-500 placeholder:text-texto-lista h-[42px]"
                   {...field}
                 />
               </FormControl>
@@ -102,10 +105,12 @@ export function EditaProfissionalForm() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-texto-status-md">Email</FormLabel>
+              <FormLabel className="text-texto-status-md md: md:text-texto-form font-normal">
+                Email
+              </FormLabel>
               <FormControl>
                 <Input
-                  className="text-texto-status-md text-cinza-500 h-[42px]"
+                  className="placeholder:text-texto-lista text-cinza-500 h-[42px]"
                   type="email"
                   {...field}
                 />
@@ -118,19 +123,18 @@ export function EditaProfissionalForm() {
           name="phone"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-texto-status-md">Telefone</FormLabel>
+              <FormLabel className="text-texto-status-md md:text-texto-form font-normal">
+                Telefone
+              </FormLabel>
               <FormControl>
-                <Input
-                  className="text-texto-status-md text-cinza-500 h-[42px]"
-                  {...field}
-                />
+                <Input className="t text-cinza-500 h-[42px]" {...field} />
               </FormControl>
             </FormItem>
           )}
         />
       </div>
 
-      <div className="text-texto-status-md flex flex-col gap-[10px]">
+      <div className="text-texto-status-md md:text-texto-form flex flex-col gap-[10px] md:gap-[20px]">
         <div className="flex flex-col justify-center">
           <span>Horários</span>
           <div className="text-cinza-500 flex items-center gap-[3px]">

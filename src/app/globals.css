@@ -170,6 +170,7 @@
     @apply bg-background text-foreground;
     @apply text-preto-400;
     font-family: var(--font-inter), sans-serif;
+      @apply leading-relaxed;
   }
 }
 

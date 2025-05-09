@@ -43,7 +43,7 @@ export default function ModalProfissional({
 }: ModalProfissionalProps) {
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="min-w-[320px] md:min-w-[640px]">
+      <DialogContent className="min-w-[320px] rounded-[35px] md:min-w-[640px]">
         <VisuallyHidden>
           <DialogTitle />
         </VisuallyHidden>
