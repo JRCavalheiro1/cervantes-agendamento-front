@@ -1,5 +1,3 @@
-"use client";
-
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { EditaProfissionalForm } from "@/components/ui/forms/edita-profissional-form";
@@ -18,7 +16,7 @@ export default function ModalProfissional({
 }: ModalProfissionalProps) {
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="min-w-[320px] rounded-[35px] md:min-w-[640px]">
+      <DialogContent className="min-w-[320px] rounded-[35px] p-[20px] md:min-w-[640px] md:p-[30px]">
         <VisuallyHidden>
           <DialogTitle />
         </VisuallyHidden>
