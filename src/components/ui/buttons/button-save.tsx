@@ -1,13 +1,18 @@
-import {Button}from "@/components/ui/buttons/button"
+import { Button } from "@/components/ui/buttons/button";
 
 type ButtonSaveProps = React.ComponentProps<typeof Button> & {
-    children: React.ReactNode;
-}
+  children: React.ReactNode;
+};
 
-export default function ButtonSave ({children}: ButtonSaveProps) {
-        return (
-            <Button className="cursor-pointer bg-border-cinza-100 border " type="button">
-                {children}
-            </Button>
-        )
+export default function ButtonSave({ children, ...props }: ButtonSaveProps) {
+  return (
+    <Button
+      variant="ghost"
+      className="bg-azul-500 text-branco-100 cursor-pointer"
+      type="button"
+      {...props}
+    >
+      {children}
+    </Button>
+  );
 }

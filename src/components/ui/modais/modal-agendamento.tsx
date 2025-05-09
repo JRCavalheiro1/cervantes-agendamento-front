@@ -10,6 +10,7 @@ import { ShowStatus } from "@/components/ui/show-status";
 import { AgendamentoProps } from "@/data/agendamentos";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { useTranslations } from "next-intl";
+import ButtonSave from "@/components/ui/buttons/button-save";
 
 interface ModalAgendamentoProps {
   agendamento: AgendamentoProps;
@@ -37,13 +38,13 @@ export default function ModalAgendamento({
   );
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="min-w-[362px] gap-[20px] rounded-[35px] p-[30px] md:min-w-[420px]">
+      <DialogContent className="min-w-[362px] gap-[40px] rounded-[35px] p-[30px] md:min-w-[420px]">
         <VisuallyHidden>
           <DialogClose />
         </VisuallyHidden>
         <DialogHeader>
           <div className="flex items-center justify-between">
-            <DialogTitle className="text-titulo-card-2 font-normal">
+            <DialogTitle className="text-titulo-card-2 md:text-titulo-card-sm font-normal">
               {translationModalAgendamento("title")}
             </DialogTitle>
             <Trash className="text-cinza-500" size={24} weight="bold" />
@@ -76,6 +77,10 @@ export default function ModalAgendamento({
             <span>Status</span>
             <ShowStatus status={status} />
           </div>
+        </div>
+        <div className="gap flex items-center justify-end gap-[10px]">
+          <ButtonSave>Cancelar</ButtonSave>
+          <ButtonSave>Confirmar Agendamento</ButtonSave>
         </div>
       </DialogContent>
     </Dialog>
