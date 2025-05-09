@@ -12,6 +12,8 @@ import {
   FormLabel,
 } from "@/components/ui/form";
 import { useForm } from "react-hook-form";
+import { ProfissionalProps } from "@/data/profissionais";
+import { useTranslations } from "next-intl";
 
 type formValue = {
   name: string;
@@ -20,15 +22,31 @@ type formValue = {
   active: boolean;
 };
 
-export function EditaProfissionalForm() {
+interface EditaProfissionalFormProps {
+  profissional: ProfissionalProps;
+}
+
+export function EditaProfissionalForm({
+  profissional: {
+    fotoPerfil,
+    nome,
+    email,
+    telefone,
+    ativo,
+    horarios,
+    servicos,
+    agendaAberta,
+  },
+}: EditaProfissionalFormProps) {
   const form = useForm<formValue>({
     defaultValues: {
-      name: "Pedro Ricardo",
-      email: "pedro.ricardo@gmail.com",
-      phone: "(51) 99988-7766",
-      active: true,
+      name: `${nome}`,
+      email: `${email}`,
+      phone: `${telefone}`,
+      active: ativo,
     },
   });
+  const translationEditaProf = useTranslations("EditProfessionalForm");
 
   return (
     <Form {...form}>
@@ -36,7 +54,7 @@ export function EditaProfissionalForm() {
         <div className="flex items-center gap-[10px]">
           <div className="border-azul-500 flex h-[75px] w-[75px] items-center justify-center rounded-full border-2 md:h-[110px] md:w-[110px]">
             <Image
-              src="/fotosProfissional/profissional1.png"
+              src={fotoPerfil}
               className="h-[65px] w-[65px] rounded-full md:h-[100px] md:w-[100px]"
               width={200}
               height={200}
@@ -45,19 +63,21 @@ export function EditaProfissionalForm() {
           </div>
 
           <div className="flex flex-col items-center">
-            <ButtonAlter>Alterar Foto</ButtonAlter>
+            <ButtonAlter>{translationEditaProf("buttonAlter")}</ButtonAlter>
             <span className="text-texto-lista-sm text-cinza-200 md:text-texto-lista">
-              JPG, PNG ou GIF, Máximo 1MB
+              {translationEditaProf("sizePhoto")}
             </span>
           </div>
         </div>
         <div className="flex items-center justify-between">
           <div className="boder-black flex flex-col items-start">
             <h1 className="text-texto-card-xl md:text-titulo-card-sm">
-              Pedro Ricardo
+              {nome}
             </h1>
             <h2 className="text-texto-status-md md:text-titulo-card-2 text-cinza-500">
-              Ativo na Empresa
+              {ativo
+                ? translationEditaProf("activeInTheCompany")
+                : translationEditaProf("inActiveInTheCompany")}
             </h2>
           </div>
 
@@ -74,7 +94,7 @@ export function EditaProfissionalForm() {
                   />
                 </FormControl>
                 <FormLabel className="text-texto-lista md:text-texto-form font-normal">
-                  Profissional Ativo
+                  {translationEditaProf("professionalActive")}
                 </FormLabel>
               </FormItem>
             )}
@@ -89,7 +109,7 @@ export function EditaProfissionalForm() {
           render={({ field }) => (
             <FormItem>
               <FormLabel className="text-texto-status-md md:text-texto-form font-normal">
-                Nome
+                {translationEditaProf("nameLabel")}
               </FormLabel>
               <FormControl>
                 <Input
@@ -106,7 +126,7 @@ export function EditaProfissionalForm() {
           render={({ field }) => (
             <FormItem>
               <FormLabel className="text-texto-status-md md: md:text-texto-form font-normal">
-                Email
+                {translationEditaProf("emailLabel")}
               </FormLabel>
               <FormControl>
                 <Input
@@ -124,7 +144,7 @@ export function EditaProfissionalForm() {
           render={({ field }) => (
             <FormItem>
               <FormLabel className="text-texto-status-md md:text-texto-form font-normal">
-                Telefone
+                {translationEditaProf("phoneLabel")}
               </FormLabel>
               <FormControl>
                 <Input className="t text-cinza-500 h-[42px]" {...field} />
@@ -136,24 +156,24 @@ export function EditaProfissionalForm() {
 
       <div className="text-texto-status-md md:text-texto-form flex flex-col gap-[10px] md:gap-[20px]">
         <div className="flex flex-col justify-center">
-          <span>Horários</span>
+          <span>{translationEditaProf("timeSlots")}</span>
           <div className="text-cinza-500 flex items-center gap-[3px]">
-            <span>09:00 às 18:00</span>
+            <span>{horarios.join(" às ")}</span>
             <NotePencil size={20} />
           </div>
         </div>
 
         <div className="flex flex-col justify-center">
-          <span>Serviços</span>
+          <span>{translationEditaProf("services")}</span>
           <div className="text-cinza-500 flex items-center gap-[3px]">
-            <span>Corte Masculino, Barba, Sombr...</span>
+            <span>{servicos?.join(", ")}</span>
             <NotePencil size={20} />
           </div>
         </div>
 
         <div className="flex w-fit flex-col">
           <span>Status</span>
-          <ShowStatus status={"disponivel"} />
+          <ShowStatus status={agendaAberta} />
         </div>
       </div>
     </Form>

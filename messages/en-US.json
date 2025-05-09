@@ -38,6 +38,18 @@
     "title": "Services",
     "subtitle": "Company services list"
   },
+  "EditProfessionalForm": {
+    "buttonAlter": "Change Photo",
+    "sizePhoto": "PNG, JPG or JPEG, maximum 1MB",
+    "professionalActive": "Professional active",
+    "activeInTheCompany": "Active in the company",
+    "inActiveInTheCompany": "Inactive in the company",
+    "nameLabel": "Name",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone",
+    "timeSlots": "Time Slots",
+    "services": "Services"
+  },
   "SelectLanguage": {
     "selectALanguage": "Select a language",
     "portuguese": "portuguese",
