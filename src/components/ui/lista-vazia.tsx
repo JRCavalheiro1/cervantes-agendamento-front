@@ -5,7 +5,7 @@ interface ListaVaziaProps {
 }
 export function ListaVazia({ icone, descricao, children }: ListaVaziaProps) {
   return (
-    <div className="flex h-100 flex-col items-center justify-center">
+    <div className="flex h-100 flex-col items-center justify-center gap-[20px]">
       {icone ? (
         <div className="bg-azul-200 flex h-[64px] w-[64px] items-center justify-center rounded-full md:h-[94px] md:w-[94px]">
           {icone}

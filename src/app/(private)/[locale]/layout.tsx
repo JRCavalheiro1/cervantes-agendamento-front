@@ -38,7 +38,9 @@ export default async function LocaleLayout({
         <NextIntlClientProvider>
           <div className="flex w-full min-w-[402px] flex-col pr-[25px] pl-[25px] md:min-h-screen md:flex-row md:pl-0">
             <NavMenu />
-            <div className="md:mx-auto md:w-full md:px-5">{children}</div>
+            <div className="mb-[20px] md:mx-auto md:w-full md:px-5">
+              {children}
+            </div>
           </div>
         </NextIntlClientProvider>
       </body>

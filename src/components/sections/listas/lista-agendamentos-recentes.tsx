@@ -32,7 +32,7 @@ export default function ListaAgendamentosRecentes() {
         })
       ) : (
         <ListaVazia
-          descricao={translationAppointList("emptyAppointmentListDescription")}
+          descricao={translationAppointList("emptyListDescription")}
         />
       )}
       {modalAberto && agendamentoSelecionado && (

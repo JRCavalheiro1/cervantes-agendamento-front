@@ -1,16 +1,14 @@
 import Header from "@/components/layout/header";
-import { useTranslations} from "next-intl";
+import { useTranslations } from "next-intl";
+import ListaServicos from "@/components/sections/listas/lista-servicos";
 
 export default function Servicos() {
-    const serviceTranslation = useTranslations("Services");
+  const serviceTranslation = useTranslations("Services");
 
-    return (
-        <div>
-            <Header titulo={serviceTranslation("title")}/>
-            {/*
-                componente pesquisa --- botão adicionar novo serviço
-                componente lista serviços
-            */}
-        </div>
-    )
+  return (
+    <div>
+      <Header titulo={serviceTranslation("title")} />
+      <ListaServicos />
+    </div>
+  );
 }

@@ -32,7 +32,7 @@
   "RecentAppointmentsList": {
     "title": "Recent Appointments",
     "subtitle": "Last appointments made",
-    "emptyAppointmentListDescription": "No appointments scheduled"
+    "emptyListDescription": "No appointments scheduled"
   },
   "ConfirmAppointmentModal": {
     "title": "Confirm Appointment",
@@ -43,7 +43,9 @@
     "dateHour": "Date/Hour"
   },
   "Services": {
-    "title": "Services"
+    "title": "Services",
+    "subtitle": "List of services offered by the company",
+    "emptyListDescription": "There are no services registered at this time"
   },
   "ServicesList": {
     "title": "Services",
