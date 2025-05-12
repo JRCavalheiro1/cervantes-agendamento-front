@@ -7,6 +7,7 @@ import ModalProfissional from "@/components/ui/modais/modal-profissional";
 import { useModal } from "@/hooks/utils/use-modal";
 
 import { profissionais, ProfissionalProps } from "@/data/profissionais";
+import { ListaVazia } from "@/components/ui/lista-vazia";
 
 export default function ListaProfissionais() {
   const {
@@ -23,13 +24,20 @@ export default function ListaProfissionais() {
       subtitulo={translationListaProf("subtitle")}
       className="min-w-[352px] xl:flex-1"
     >
-      {profissionais.map((item) => {
-        return (
-          <li key={item.id}>
-            <ProfissionalItem {...item} onClick={() => abreModal(item)} />
-          </li>
-        );
-      })}
+      {profissionais.length > 0 ? (
+        profissionais.map((item) => {
+          return (
+            <li key={item.id}>
+              <ProfissionalItem {...item} onClick={() => abreModal(item)} />
+            </li>
+          );
+        })
+      ) : (
+        <ListaVazia
+          descricao="Não há profissionains cadastrados no momento"
+          linkRedirecionamento="/"
+        />
+      )}
       {modalAberto && profissionalSelecionado && (
         <ModalProfissional
           profissional={profissionalSelecionado}
