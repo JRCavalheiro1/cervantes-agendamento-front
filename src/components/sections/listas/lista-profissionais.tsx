@@ -3,7 +3,7 @@
 import ProfissionalItem from "@/components/sections/items/profissional-item";
 import ListaContainer from "@/components/sections/listas/lista-container";
 import { useTranslations } from "next-intl";
-import ModalProfissional from "@/components/ui/modais/modal-profissional";
+import { ModalProfissional } from "@/components/ui/modais/modal-profissional";
 import { useModal } from "@/hooks/utils/use-modal";
 import { UsersFour } from "@phosphor-icons/react/dist/ssr";
 import { profissionais, ProfissionalProps } from "@/data/profissionais";

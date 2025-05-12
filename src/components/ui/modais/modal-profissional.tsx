@@ -1,7 +1,6 @@
-import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
-import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { EditaProfissionalForm } from "@/components/ui/forms/edita-profissional-form";
 import { ProfissionalProps } from "@/data/profissionais";
+import ModalContainer from "@/components/ui/modais/modal-container";
 
 interface ModalProfissionalProps {
   profissional: ProfissionalProps;
@@ -9,19 +8,14 @@ interface ModalProfissionalProps {
   onClose: () => void;
 }
 
-export default function ModalProfissional({
+export function ModalProfissional({
   profissional,
   open,
   onClose,
 }: ModalProfissionalProps) {
   return (
-    <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="min-w-[320px] rounded-[35px] p-[20px] md:min-w-[640px] md:p-[30px]">
-        <VisuallyHidden>
-          <DialogTitle />
-        </VisuallyHidden>
-        <EditaProfissionalForm profissional={profissional} />
-      </DialogContent>
-    </Dialog>
+    <ModalContainer open={open} onClose={onClose}>
+      <EditaProfissionalForm profissional={profissional} />
+    </ModalContainer>
   );
 }
