@@ -1,23 +1,19 @@
-import Link from "next/link";
-
 interface ListaVaziaProps {
   icone?: React.ReactNode;
   descricao: string;
-  linkClicar?: string;
-  linkRedirecionamento: string;
+  children?: React.ReactNode;
 }
-export function ListaVazia({
-  icone,
-  descricao,
-  linkClicar,
-  linkRedirecionamento,
-}: ListaVaziaProps) {
+export function ListaVazia({ icone, descricao, children }: ListaVaziaProps) {
   return (
-    <div>
-      {icone}
-      <div>
+    <div className="flex h-100 flex-col items-center justify-center">
+      {icone ? (
+        <div className="bg-azul-200 flex h-[64px] w-[64px] items-center justify-center rounded-full md:h-[94px] md:w-[94px]">
+          {icone}
+        </div>
+      ) : null}
+      <div className="text-texto-card-sm md:text-titulo-card-2 text-cinza-500 flex flex-col items-center text-center">
         <span>{descricao}</span>
-        <Link href={linkRedirecionamento}>Cadastre um Agora</Link>
+        {children}
       </div>
     </div>
   );

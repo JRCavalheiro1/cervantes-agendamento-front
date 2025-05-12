@@ -6,6 +6,7 @@ import { AgendamentoProps, agendamentos } from "@/data/agendamentos";
 import { useTranslations } from "next-intl";
 import { useModal } from "@/hooks/utils/use-modal";
 import ModalAgendamento from "@/components/ui/modais/modal-agendamento";
+import { ListaVazia } from "@/components/ui/lista-vazia";
 
 export default function ListaAgendamentosRecentes() {
   const translationAppointList = useTranslations("RecentAppointmentsList");
@@ -21,13 +22,19 @@ export default function ListaAgendamentosRecentes() {
       subtitulo={translationAppointList("subtitle")}
       className="min-w-[352px] xl:w-[30%]"
     >
-      {agendamentos.map((item) => {
-        return (
-          <li key={item.id}>
-            <AgendamentoItem {...item} onClick={() => abreModal(item)} />
-          </li>
-        );
-      })}
+      {agendamentos.length > 0 ? (
+        agendamentos.map((item) => {
+          return (
+            <li key={item.id}>
+              <AgendamentoItem {...item} onClick={() => abreModal(item)} />
+            </li>
+          );
+        })
+      ) : (
+        <ListaVazia
+          descricao={translationAppointList("emptyAppointmentListDescription")}
+        />
+      )}
       {modalAberto && agendamentoSelecionado && (
         <ModalAgendamento
           agendamento={agendamentoSelecionado}

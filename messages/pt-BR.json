@@ -18,7 +18,13 @@
   },
   "ProfessionalList":{
     "title": "Profissionais Ativos",
-    "subtitle": "Profissionais disponíves hoje"
+    "subtitle": "Profissionais disponíves hoje",
+    "emptyListDescription": "Não há profissionais cadastrados no momento",
+    "linkAddNow": "Cadastre um agora"
+  },
+  "EmptyProfessionalList": {
+    "description": "Não há profissionais cadastrados no momento",
+    "addNow": "Cadastre um agora"
   },
   "Status": {
     "available": "disponivel",
@@ -29,7 +35,8 @@
   },
   "RecentAppointmentsList": {
     "title": "Agendamentos Recentes",
-    "subtitle": "Últimos agendamentos realizados"
+    "subtitle": "Últimos agendamentos realizados",
+    "emptyAppointmentListDescription": "Nenhum agendamento realizado"
   },
   "ConfirmAppointmentModal": {
     "title": "Confirmar Agendamento",

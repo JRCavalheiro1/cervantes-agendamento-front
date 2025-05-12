@@ -5,9 +5,10 @@ import ListaContainer from "@/components/sections/listas/lista-container";
 import { useTranslations } from "next-intl";
 import ModalProfissional from "@/components/ui/modais/modal-profissional";
 import { useModal } from "@/hooks/utils/use-modal";
-
+import { UsersFour } from "@phosphor-icons/react/dist/ssr";
 import { profissionais, ProfissionalProps } from "@/data/profissionais";
 import { ListaVazia } from "@/components/ui/lista-vazia";
+import Link from "next/link";
 
 export default function ListaProfissionais() {
   const {
@@ -18,6 +19,7 @@ export default function ListaProfissionais() {
   } = useModal<ProfissionalProps>();
 
   const translationListaProf = useTranslations("ProfessionalList");
+
   return (
     <ListaContainer
       titulo={translationListaProf("title")}
@@ -34,9 +36,21 @@ export default function ListaProfissionais() {
         })
       ) : (
         <ListaVazia
-          descricao="Não há profissionains cadastrados no momento"
-          linkRedirecionamento="/"
-        />
+          icone={
+            <UsersFour
+              size={42}
+              className="text-azul-400 md:h-[62px] md:w-[62px]"
+            />
+          }
+          descricao={translationListaProf("emptyListDescription")}
+        >
+          <Link
+            className="text-azul-300 text-texto-lista md:text-texto-form"
+            href="/profissionais"
+          >
+            {translationListaProf("linkAddNow")}
+          </Link>
+        </ListaVazia>
       )}
       {modalAberto && profissionalSelecionado && (
         <ModalProfissional

@@ -18,7 +18,9 @@
   },
   "ProfessionalList":{
     "title": "Active Professionals",
-    "subtitle": "Professionals available today"
+    "subtitle": "Professionals available today",
+    "emptyListDescription": "There are no professionals registered at the moment",
+    "linkAddNow": "Add one now"
   },
   "Status": {
     "available": "available",
@@ -29,7 +31,8 @@
   },
   "RecentAppointmentsList": {
     "title": "Recent Appointments",
-    "subtitle": "Last appointments made"
+    "subtitle": "Last appointments made",
+    "emptyAppointmentListDescription": "No appointments scheduled"
   },
   "ConfirmAppointmentModal": {
     "title": "Confirm Appointment",
