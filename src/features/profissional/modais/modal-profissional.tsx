@@ -1,4 +1,4 @@
-import { EditaProfissionalForm } from "@/components/ui/forms/edita-profissional-form";
+import { EditaProfissionalForm } from "@/features/profissional/forms/edita-profissional-form";
 import { ProfissionalProps } from "@/data/profissionais";
 import ModalContainer from "@/components/ui/modais/modal-container";
 

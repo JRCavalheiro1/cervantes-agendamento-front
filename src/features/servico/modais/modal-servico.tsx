@@ -1,6 +1,6 @@
 import { ServicosProps } from "@/data/servicos";
 import ModalContainer from "@/components/ui/modais/modal-container";
-import { EditaServicoForm } from "@/components/ui/forms/edita-servico-form";
+import { EditaServicoForm } from "@/features/servico/forms/edita-servico-form";
 
 interface ModalServicoProps {
   servico: ServicosProps;

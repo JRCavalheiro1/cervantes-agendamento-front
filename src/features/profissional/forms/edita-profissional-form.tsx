@@ -20,7 +20,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import {
   profissionalSchema,
   ProfissionalFormValues,
-} from "@/schemas/profissional-schema";
+} from "@/features/profissional/schemas/profissional-schema";
 import { useProfissionais } from "@/hooks/utils/use-profissionais";
 import ButtonSave from "@/components/ui/buttons/button-save";
 

@@ -1,6 +1,6 @@
 import Header from "@/components/layout/header";
 import { useTranslations } from "next-intl";
-import ListaServicos from "@/components/sections/listas/lista-servicos";
+import ListaServicos from "@/features/servico/listas/lista-servicos";
 
 export default function Servicos() {
   const serviceTranslation = useTranslations("Services");

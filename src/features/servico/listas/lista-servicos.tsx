@@ -5,9 +5,9 @@ import { useTranslations } from "next-intl";
 import { ListaVazia } from "@/components/ui/lista-vazia";
 import { Toolbox } from "@phosphor-icons/react/dist/ssr";
 import { servicos, ServicosProps } from "@/data/servicos";
-import { ServicoItem } from "@/components/sections/items/servico-item";
+import { ServicoItem } from "@/features/servico/items/servico-item";
 import { useModal } from "@/hooks/utils/use-modal";
-import { ModalServico } from "@/components/ui/modais/modal-servico";
+import { ModalServico } from "@/features/servico/modais/modal-servico";
 
 export default function ListaServicos() {
   const listaServicosTranslation = useTranslations("Services");

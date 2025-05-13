@@ -1,11 +1,11 @@
 "use client";
 
 import ListaContainer from "@/components/sections/listas/lista-container";
-import AgendamentoItem from "@/components/sections/items/agendamento-item";
+import AgendamentoItem from "@/features/agendamento/items/agendamento-item";
 import { AgendamentoProps, agendamentos } from "@/data/agendamentos";
 import { useTranslations } from "next-intl";
 import { useModal } from "@/hooks/utils/use-modal";
-import ModalAgendamento from "@/components/ui/modais/modal-agendamento";
+import ModalAgendamento from "@/features/agendamento/modais/modal-agendamento";
 import { ListaVazia } from "@/components/ui/lista-vazia";
 
 export default function ListaAgendamentosRecentes() {
