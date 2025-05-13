@@ -1,12 +1,22 @@
+"use client";
+
 import ListaContainer from "@/components/sections/listas/lista-container";
 import { useTranslations } from "next-intl";
 import { ListaVazia } from "@/components/ui/lista-vazia";
 import { Toolbox } from "@phosphor-icons/react/dist/ssr";
-import { servicos } from "@/data/servicos";
+import { servicos, ServicosProps } from "@/data/servicos";
 import { ServicoItem } from "@/components/sections/items/servico-item";
+import { useModal } from "@/hooks/utils/use-modal";
+import { ModalServico } from "@/components/ui/modais/modal-servico";
 
 export default function ListaServicos() {
   const listaServicosTranslation = useTranslations("Services");
+  const {
+    itemSelecionado: servicoSelecionado,
+    modalAberto,
+    abreModal,
+    fechaModal,
+  } = useModal<ServicosProps>();
 
   return (
     <ListaContainer
@@ -16,7 +26,11 @@ export default function ListaServicos() {
       {servicos.length > 0 ? (
         servicos.map((servico) => (
           <li key={servico.id}>
-            <ServicoItem nome={servico.nome} imagem={servico.imagem} />
+            <ServicoItem
+              nome={servico.nome}
+              imagem={servico.imagem}
+              onClick={() => abreModal(servico)}
+            />
           </li>
         ))
       ) : (
@@ -29,6 +43,13 @@ export default function ListaServicos() {
             />
           }
           descricao={listaServicosTranslation("emptyListDescription")}
+        />
+      )}
+      {modalAberto && servicoSelecionado && (
+        <ModalServico
+          servico={servicoSelecionado}
+          open={modalAberto}
+          onClose={fechaModal}
         />
       )}
     </ListaContainer>

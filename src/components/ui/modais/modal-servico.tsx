@@ -1,5 +1,6 @@
 import { ServicosProps } from "@/data/servicos";
 import ModalContainer from "@/components/ui/modais/modal-container";
+import { EditaServicoForm } from "@/components/ui/forms/edita-servico-form";
 
 interface ModalServicoProps {
   servico: ServicosProps;
@@ -8,10 +9,9 @@ interface ModalServicoProps {
 }
 
 export function ModalServico({ servico, open, onClose }: ModalServicoProps) {
-  const { nome, imagem } = servico;
   return (
     <ModalContainer open={open} onClose={onClose}>
-      <div>AAAAA</div>
+      <EditaServicoForm servico={servico} />
     </ModalContainer>
   );
 }
