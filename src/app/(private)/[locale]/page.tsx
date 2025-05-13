@@ -17,7 +17,6 @@ export default function PaginaInicial() {
   return (
     <div className="flex flex-col">
       <Header titulo={tranlationHeader("title")} />
-
       <div className="flex w-full flex-col gap-[20px]">
         <div className="grid grid-cols-2 gap-[20px] xl:grid-cols-4">
           <InfoCard
