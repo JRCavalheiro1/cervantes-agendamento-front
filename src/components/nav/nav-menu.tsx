@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import {
   House,
   CalendarBlank,
@@ -10,10 +9,12 @@ import {
   List,
   SignOut,
 } from "@phosphor-icons/react/dist/ssr";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Backdrop } from "@/components/backdrop/backdrop";
 import { useTranslations } from "next-intl";
 import SelecionaIdioma from "@/components/nav/seleciona-idioma";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 export default function NavMenu() {
   const [modalAberto, setModalAberto] = useState<boolean>(false);
@@ -51,15 +52,15 @@ export default function NavMenu() {
       link: "configuracoes",
     },
   ];
-
   const larguraTelaMedia = 768;
 
-  function handleLinkClicado() {
+  const pathname = usePathname();
+
+  useEffect(() => {
     if (window.innerWidth < larguraTelaMedia) {
       setModalAberto(false);
-      console.log(modalAberto);
     }
-  }
+  }, [pathname]);
 
   return (
     <div className="flex h-full flex-col">
@@ -91,11 +92,7 @@ export default function NavMenu() {
                   key={item.id}
                   className="hover:text-azul-400 duration-0.3 w-fit transition"
                 >
-                  <Link
-                    href={`/${item.link}`}
-                    className="flex gap-1.5"
-                    onClick={() => handleLinkClicado()}
-                  >
+                  <Link href={`/${item.link}`} className="flex gap-1.5">
                     {item.icone}
                     {item.titulo}
                   </Link>

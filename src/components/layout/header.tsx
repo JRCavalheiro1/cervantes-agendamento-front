@@ -1,16 +1,13 @@
-'use client';
-
-
 type headerProps = {
-    titulo: string;
-}
+  titulo: string;
+  children?: React.ReactNode;
+};
 
-export default function Header({titulo}: headerProps) {
-    return (
-        <header className="h-[80px] flex items-center text-titulo-card-2 font-bold
-        md:text-titulo-menu-md"
-        >
-            <h1>{titulo}</h1>
-        </header>
-    )
+export default function Header({ titulo, children }: headerProps) {
+  return (
+    <header className="text-titulo-card-2 md:text-titulo-menu-md flex h-[80px] items-center font-bold">
+      {children}
+      <h1>{titulo}</h1>
+    </header>
+  );
 }

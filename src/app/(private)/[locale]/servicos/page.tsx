@@ -1,6 +1,9 @@
 import Header from "@/components/layout/header";
 import { useTranslations } from "next-intl";
 import ListaServicos from "@/features/servico/listas/lista-servicos";
+import CaixaPesquisa from "@/components/ui/pesquisa/caixa-pesquisa";
+import { Button } from "@/components/ui/buttons/button";
+import { ButtonNew } from "@/components/ui/buttons/button-new";
 
 export default function Servicos() {
   const serviceTranslation = useTranslations("Services");
@@ -8,7 +11,13 @@ export default function Servicos() {
   return (
     <div>
       <Header titulo={serviceTranslation("title")} />
-      <ListaServicos />
+      <div className="flex flex-col gap-[10px] p-[10px] md:gap-[20px]">
+        <div className="flex items-center gap-[5px] md:gap-[10px]">
+          <CaixaPesquisa />
+          <ButtonNew content="Novo Serviço" link="/servicos/novoServico" />
+        </div>
+        <ListaServicos />
+      </div>
     </div>
   );
 }

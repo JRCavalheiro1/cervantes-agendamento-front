@@ -1,5 +1,4 @@
 "use client";
-
 import ListaContainer from "@/components/sections/listas/lista-container";
 import { useTranslations } from "next-intl";
 import { ListaVazia } from "@/components/ui/lista-vazia";

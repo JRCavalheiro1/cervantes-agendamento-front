@@ -170,8 +170,23 @@
     @apply bg-background text-foreground;
     @apply text-preto-400;
     font-family: var(--font-inter), sans-serif;
-      @apply leading-relaxed;
+    @apply leading-relaxed;
   }
 }
 
+#page-content.page-transition {
+    opacity: 0;
+    transform: translateX(40px);
+    filter: blur(12px);
+    transition-property: opacity, transform, filter;
+    transition-timing-function: ease-in-out;
+    transition-duration: 300ms;
+}
+
+#page-content {
+    opacity: 1;
+    background-color: transparent;
+    transform: translateX(0);
+    filter: blur(0);
+}
 
