@@ -43,7 +43,7 @@ export default function PaginaInicial() {
           />
         </div>
         <div className="flex flex-col gap-[20px] xl:w-full xl:flex-row">
-          <ListaProfissionais />
+          <ListaProfissionais variant="home" />
           <ListaAgendamentosRecentes />
         </div>
       </div>

@@ -5,6 +5,7 @@ import { ShowStatus } from "@/components/ui/show-status";
 
 interface ProfissionalItemProps extends ProfissionalProps {
   onClick?: () => void;
+  variant?: "home";
 }
 
 export default function ProfissionalItem({
@@ -12,8 +13,11 @@ export default function ProfissionalItem({
   fotoPerfil,
   agendaAberta,
   horarios,
+  ativo,
   onClick,
+  variant,
 }: ProfissionalItemProps) {
+  const emAtividade = ativo ? "Ativo na empresa" : "Inativo na empresa";
   return (
     <div className="text-texto-card-sm md:text-texto-card-xl flex items-center justify-between p-[5px]">
       <div className="flex gap-[10px]">
@@ -26,12 +30,14 @@ export default function ProfissionalItem({
         />
         <div className="flex flex-col">
           <span>{nome}</span>
-          <span className="text-cinza-300">{`${horarios.join("-")}`}</span>
+          <span className="text-cinza-300">
+            {variant ? `${horarios.join("-")}` : emAtividade}
+          </span>
         </div>
       </div>
 
       <div className="flex items-center gap-[10px]">
-        <ShowStatus status={agendaAberta} />
+        {variant ? <ShowStatus status={agendaAberta} /> : null}
         <NotePencil
           size={20}
           color="#929090"

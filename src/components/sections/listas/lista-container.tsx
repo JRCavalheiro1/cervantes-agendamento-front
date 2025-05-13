@@ -12,7 +12,7 @@ export default function ListaContainer({
 }: ListaContainerProps) {
   return (
     <div
-      className={`bg-branco-100 flex flex-col gap-[20px] rounded-[20px] p-[20px] md:p-[30px] ${className}`}
+      className={`bg-branco-100 flex w-full flex-col gap-[20px] rounded-[20px] p-[20px] md:p-[30px] ${className}`}
     >
       <div>
         <h1 className="text-texto-card-xl md:text-titulo-card-sm">{titulo}</h1>

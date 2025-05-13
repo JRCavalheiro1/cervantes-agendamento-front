@@ -10,7 +10,12 @@ import { profissionais, ProfissionalProps } from "@/data/profissionais";
 import { ListaVazia } from "@/components/ui/lista-vazia";
 import Link from "next/link";
 
-export default function ListaProfissionais() {
+interface ListaProfissionaisProps {
+  variant?: "home";
+}
+export default function ListaProfissionais({
+  variant,
+}: ListaProfissionaisProps) {
   const {
     itemSelecionado: profissionalSelecionado,
     modalAberto,
@@ -24,13 +29,17 @@ export default function ListaProfissionais() {
     <ListaContainer
       titulo={translationListaProf("title")}
       subtitulo={translationListaProf("subtitle")}
-      className="min-w-[352px] xl:flex-1"
+      className="xl:flex-1"
     >
       {profissionais.length > 0 ? (
         profissionais.map((item) => {
           return (
             <li key={item.id}>
-              <ProfissionalItem {...item} onClick={() => abreModal(item)} />
+              <ProfissionalItem
+                {...item}
+                onClick={() => abreModal(item)}
+                variant={variant}
+              />
             </li>
           );
         })

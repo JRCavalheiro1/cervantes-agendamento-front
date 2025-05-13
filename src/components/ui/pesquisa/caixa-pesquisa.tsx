@@ -13,7 +13,7 @@ export default function CaixaPesquisa() {
       <Button
         type="button"
         variant="ghost"
-        className="bg-azul-200 text-azul-400 h-[42px] rounded-tl-none rounded-bl-none md:h-[46px] md:w-[55px]"
+        className="bg-azul-200 text-azul-400 h-[42px] cursor-pointer rounded-tl-none rounded-bl-none md:h-[46px] md:w-[55px]"
       >
         <MagnifyingGlass />
       </Button>
