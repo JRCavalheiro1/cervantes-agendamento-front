@@ -20,17 +20,32 @@ import {
 import { ListaSelecaoProfissionais } from "@/features/profissional/listas/lista-selecao-profissionais";
 import { profissionais } from "@/data/profissionais";
 import ButtonCancel from "@/components/ui/buttons/button-cancel";
+import { useServico } from "@/features/servico/hooks/use-servico";
 
 export function NovoServicoForm() {
+  const { adicionaServico } = useServico();
+
   const form = useForm<ServicoFormValues>({
     resolver: zodResolver(servicoSchema),
     defaultValues: {
       nome: "",
-      valor: undefined,
+      preco: undefined,
       duracao: undefined,
       descricao: "",
+      imagem: undefined,
     },
   });
+
+  function onSubmit(data: ServicoFormValues) {
+    const servicoAdicionado = adicionaServico({
+      nome: data.nome,
+      preco: Number(data.preco),
+      duracao: Number(data.duracao),
+      descricao: data.descricao,
+      imagem: data.imagem,
+      profissionais: [],
+    });
+  }
 
   return (
     <Form {...form}>
@@ -44,13 +59,12 @@ export function NovoServicoForm() {
               Registro do novo serviço
             </h2>
           </div>
-
           <div className="flex flex-col items-center gap-[12px] md:flex-row md:justify-start">
             <div className="border-azul-200 text-azul-200 flex h-[72px] w-[72px] items-center justify-center rounded-full border-2">
               <Image size={30} />
             </div>
             <div className="flex flex-col gap-[5px]">
-              <ButtonAlter>Adicionar uma foto</ButtonAlter>
+              <Input id="picture" type="file" placeholder="Adicionar Foto" />
               <span className="text-texto-lista-sm text-cinza-200">
                 JPG, PGN ou GIF, máximo 1MB
               </span>
@@ -73,7 +87,7 @@ export function NovoServicoForm() {
             />
             <FormField
               control={form.control}
-              name="valor"
+              name="preco"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-texto-status-md md:text-texto-form font-normal">
@@ -122,7 +136,7 @@ export function NovoServicoForm() {
         />
         <div className="flex justify-end gap-[10px]">
           <ButtonCancel>Cancelar</ButtonCancel>
-          <ButtonSave>Cadastrar Serviço</ButtonSave>
+          <ButtonSave type="submit">Cadastrar Serviço</ButtonSave>
         </div>
       </form>
     </Form>

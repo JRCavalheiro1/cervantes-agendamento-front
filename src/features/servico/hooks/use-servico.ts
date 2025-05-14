@@ -15,4 +15,6 @@ export function useServico() {
     setServicos([...servicos, novoServicoComId]);
     return novoServicoComId;
   };
+
+  return { servicos, adicionaServico };
 }
