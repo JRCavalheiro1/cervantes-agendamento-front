@@ -45,12 +45,7 @@ export default function ListaProfissionais({
         })
       ) : (
         <ListaVazia
-          icone={
-            <UsersFour
-              size={42}
-              className="text-azul-400 md:h-[62px] md:w-[62px]"
-            />
-          }
+          icone={true}
           descricao={translationListaProf("emptyListDescription")}
         >
           <Link
