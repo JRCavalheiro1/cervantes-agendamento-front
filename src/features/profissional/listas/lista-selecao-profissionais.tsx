@@ -33,30 +33,33 @@ export function ListaSelecaoProfissionais({
             control={control}
             name="profissional"
             render={({ field }) => (
-              <FormItem className="flex cursor-pointer items-center justify-between">
-                <FormLabel>
-                  <Image
-                    src={profissional.fotoPerfil}
-                    alt={profissional.nome}
-                    width={200}
-                    height={200}
-                    className="h-[40px] w-[40px]"
-                  />
-                  {profissional.nome}
-                </FormLabel>
-                <FormControl>
-                  <Checkbox
-                    checked={field.value?.includes(profissional.id)}
-                    onCheckedChange={(checked) => {
-                      const newValue = checked
-                        ? [...(field.value || []), profissional.id]
-                        : field.value?.filter(
-                            (id: number) => id !== profissional.id,
-                          );
-                      field.onChange(newValue);
-                    }}
-                  />
-                </FormControl>
+              <FormItem>
+                <label className="flex w-full cursor-pointer items-center justify-between">
+                  <FormLabel className="cursor-pointer">
+                    <Image
+                      src={profissional.fotoPerfil}
+                      alt={profissional.nome}
+                      width={200}
+                      height={200}
+                      className="h-[40px] w-[40px]"
+                    />
+                    {profissional.nome}
+                  </FormLabel>
+                  <FormControl>
+                    <Checkbox
+                      className="cursor-pointer"
+                      checked={field.value?.includes(profissional.id)}
+                      onCheckedChange={(checked) => {
+                        const newValue = checked
+                          ? [...(field.value || []), profissional.id]
+                          : field.value?.filter(
+                              (id: number) => id !== profissional.id,
+                            );
+                        field.onChange(newValue);
+                      }}
+                    />
+                  </FormControl>
+                </label>
               </FormItem>
             )}
           />
