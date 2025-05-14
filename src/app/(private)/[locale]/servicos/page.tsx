@@ -12,7 +12,7 @@ export default function Servicos() {
       <Header titulo={serviceTranslation("title")} />
       <div className="flex flex-col gap-[10px] md:gap-[20px]">
         <div className="flex items-center gap-[5px] md:gap-[10px]">
-          <CaixaPesquisa />
+          <CaixaPesquisa placeholder="Pesquisar serviço" />
           <ButtonNew content="Novo Serviço" link="/servicos/novoServico" />
         </div>
         <ListaServicos />

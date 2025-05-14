@@ -9,7 +9,7 @@ export default function Profissionais() {
       <Header titulo="Profissionais" />
       <div className="flex flex-col gap-[10px] md:gap-[20px]">
         <div className="flex items-center gap-[5px] md:gap-[10px]">
-          <CaixaPesquisa />
+          <CaixaPesquisa placeholder="Pesquisar profissional" />
           <ButtonNew
             content="Novo profisssional"
             link="/profissionais/novoProfissional"

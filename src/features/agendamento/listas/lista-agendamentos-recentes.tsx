@@ -6,7 +6,7 @@ import { AgendamentoProps, agendamentos } from "@/data/agendamentos";
 import { useTranslations } from "next-intl";
 import { useModal } from "@/hooks/utils/use-modal";
 import ModalAgendamento from "@/features/agendamento/modais/modal-agendamento";
-import { ListaVazia } from "@/components/ui/lista-vazia";
+import { ListaVazia } from "@/components/sections/listas/lista-vazia";
 
 export default function ListaAgendamentosRecentes() {
   const translationAppointList = useTranslations("RecentAppointmentsList");

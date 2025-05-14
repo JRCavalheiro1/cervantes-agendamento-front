@@ -52,6 +52,8 @@
     --color-vermelho-300: #FB2E2E;
     --color-vermelho-600: #5a0404;
     --p-large: 1.125rem;
+
+    --color-hover-card: var(--color-azul-50)
 }
 
 @theme inline {
@@ -189,5 +191,9 @@
     background-color: transparent;
     transform: translateX(0);
     filter: blur(0);
+}
+
+.hover-overflow-auto:hover {
+    overflow-y: auto;
 }
 

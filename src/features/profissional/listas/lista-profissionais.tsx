@@ -5,9 +5,8 @@ import ListaContainer from "@/components/sections/listas/lista-container";
 import { useTranslations } from "next-intl";
 import { ModalProfissional } from "@/features/profissional/modais/modal-profissional";
 import { useModal } from "@/hooks/utils/use-modal";
-import { UsersFour } from "@phosphor-icons/react/dist/ssr";
 import { profissionais, ProfissionalProps } from "@/data/profissionais";
-import { ListaVazia } from "@/components/ui/lista-vazia";
+import { ListaVazia } from "@/components/sections/listas/lista-vazia";
 import Link from "next/link";
 
 interface ListaProfissionaisProps {

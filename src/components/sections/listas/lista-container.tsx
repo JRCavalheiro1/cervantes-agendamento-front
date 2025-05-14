@@ -1,3 +1,5 @@
+import { cn } from "@/lib/utils";
+
 type ListaContainerProps = {
   titulo: string;
   subtitulo: string;
@@ -12,7 +14,10 @@ export default function ListaContainer({
 }: ListaContainerProps) {
   return (
     <div
-      className={`bg-branco-100 flex w-full flex-col gap-[20px] rounded-[20px] p-[20px] md:p-[30px] ${className}`}
+      className={cn(
+        "bg-branco-100 flex w-full flex-col gap-[20px] rounded-[20px] p-[20px] md:p-[30px]",
+        className,
+      )}
     >
       <div>
         <h1 className="text-texto-card-xl md:text-titulo-card-sm">{titulo}</h1>

@@ -9,8 +9,8 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import { ProfissionalProps } from "@/data/profissionais";
 import ListaContainer from "@/components/sections/listas/lista-container";
-import Image from "next/image";
-import { ListaVazia } from "@/components/ui/lista-vazia";
+import { ListaVazia } from "@/components/sections/listas/lista-vazia";
+import ImageContainer from "@/components/ui/imagem/image-container";
 
 interface ListaSelecaoProfissionaisProps {
   control: any;
@@ -34,20 +34,17 @@ export function ListaSelecaoProfissionais({
             name="profissional"
             render={({ field }) => (
               <FormItem>
-                <label className="flex w-full cursor-pointer items-center justify-between">
-                  <FormLabel className="cursor-pointer">
-                    <Image
+                <label className="flex w-full cursor-pointer items-center justify-between p-[5px]">
+                  <FormLabel className="text-texto-status-md md:text-texto-card-xl cursor-pointer font-normal">
+                    <ImageContainer
                       src={profissional.fotoPerfil}
                       alt={profissional.nome}
-                      width={200}
-                      height={200}
-                      className="h-[40px] w-[40px]"
                     />
                     {profissional.nome}
                   </FormLabel>
                   <FormControl>
                     <Checkbox
-                      className="cursor-pointer"
+                      className="data-[state=checked]:bg-azul-500 data-[state=checked]:border-azul-500 h-[18px] w-[18px] cursor-pointer shadow-none md:h-[24px] md:w-[24px]"
                       checked={field.value?.includes(profissional.id)}
                       onCheckedChange={(checked) => {
                         const newValue = checked

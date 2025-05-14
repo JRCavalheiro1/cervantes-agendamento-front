@@ -15,7 +15,7 @@ export function ButtonNew({ content, link }: ButtonNewProps) {
       onClick={() => router.push(`${link}`)}
     >
       <Plus size={20} />
-      <span className="md:text-texto-form hidden whitespace-nowrap md:block">
+      <span className="md:text-texto-form text-texto-lista whitespace-nowrap md:block">
         {content}
       </span>
     </div>

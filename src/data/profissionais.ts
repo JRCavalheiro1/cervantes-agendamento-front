@@ -44,15 +44,4 @@ export const profissionais: ProfissionalProps[] = [
     horarios: ["07:00", "17:00"],
     servicos: ["Corte Masculino"],
   },
-  {
-    id: 5,
-    nome: "José Oliveira",
-    email: "jose.oliveira@gmail.com",
-    telefone: "(11) 5555-5555",
-    fotoPerfil: "/fotosProfissional/profissional3.png",
-    ativo: true,
-    agendaAberta: "indisponivel",
-    horarios: ["08:00", "16:00"],
-    servicos: ["Corte Masculino"],
-  },
 ];

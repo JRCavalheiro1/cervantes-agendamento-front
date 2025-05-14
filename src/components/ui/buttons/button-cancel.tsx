@@ -11,7 +11,7 @@ export default function ButtonCancel({
   return (
     <Button
       variant="ghost"
-      className="bg-cinza-100 text-preto-400 cursor-pointer border"
+      className="bg-branco-100 text-preto-400 border-cinza-100 cursor-pointer border"
       type="button"
       {...props}
     >

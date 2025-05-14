@@ -19,6 +19,7 @@ import {
 } from "@/features/servico/schemas/servico-schema";
 import { ListaSelecaoProfissionais } from "@/features/profissional/listas/lista-selecao-profissionais";
 import { profissionais } from "@/data/profissionais";
+import ButtonCancel from "@/components/ui/buttons/button-cancel";
 
 export function NovoServicoForm() {
   const form = useForm<ServicoFormValues>({
@@ -115,11 +116,13 @@ export function NovoServicoForm() {
           </div>
         </div>
 
-        <div>
-          <ListaSelecaoProfissionais
-            control={form.control}
-            profissionais={profissionais}
-          />
+        <ListaSelecaoProfissionais
+          control={form.control}
+          profissionais={profissionais}
+        />
+        <div className="flex justify-end gap-[10px]">
+          <ButtonCancel>Cancelar</ButtonCancel>
+          <ButtonSave>Cadastrar Serviço</ButtonSave>
         </div>
       </form>
     </Form>
