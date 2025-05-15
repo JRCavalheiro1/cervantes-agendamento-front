@@ -31,7 +31,7 @@ export function ListaSelecaoProfissionais({
           <FormField
             key={profissional.id}
             control={control}
-            name="profissional"
+            name="profissionais"
             render={({ field }) => (
               <FormItem>
                 <label className="flex w-full cursor-pointer items-center justify-between p-[5px]">
@@ -50,7 +50,7 @@ export function ListaSelecaoProfissionais({
                         const newValue = checked
                           ? [...(field.value || []), profissional.id]
                           : field.value?.filter(
-                              (id: number) => id !== profissional.id,
+                              (id: string) => id !== profissional.id,
                             );
                         field.onChange(newValue);
                       }}

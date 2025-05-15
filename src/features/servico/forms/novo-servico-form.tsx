@@ -11,7 +11,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import ButtonSave from "@/components/ui/buttons/button-save";
 
-import Image from "next/image";
+import ImageContainer from "@/components/ui/imagem/image-container";
 import ImageFormView from "@/components/ui/imagem/image-form-view";
 
 import { Input } from "@/components/ui/input";
@@ -25,9 +25,10 @@ import { profissionais } from "@/data/profissionais";
 import ButtonCancel from "@/components/ui/buttons/button-cancel";
 import { useServico } from "@/features/servico/hooks/use-servico";
 import { fileToBase64 } from "@/lib/utils/file-to-base";
+import { ButtonFileInput } from "@/components/ui/buttons/button-file-input";
 
 export function NovoServicoForm() {
-  const { adicionaServico } = useServico();
+  const { adicionaServico, servicos } = useServico();
 
   const form = useForm<ServicoFormInput>({
     resolver: zodResolver(servicoSchema),
@@ -54,6 +55,7 @@ export function NovoServicoForm() {
       });
 
       console.log(servicoAdicionado);
+      console.log(servicos);
     } catch (e) {
       console.error("Erro ao adicionar serviço:", e);
     }
@@ -80,31 +82,27 @@ export function NovoServicoForm() {
             render={({ field }) => (
               <FormItem>
                 <div className="flex flex-col items-center gap-[12px] md:flex-row md:justify-start">
-                  <div className="flex h-20 w-20 items-center justify-center overflow-auto rounded-full border-2 border-blue-200 text-blue-200">
-                    {field.value ? (
-                      <Image
-                        src={URL.createObjectURL(field.value)}
-                        alt="teste"
-                        width={200}
-                        height={200}
-                      />
-                    ) : (
-                      <ImageFormView />
-                    )}
-                  </div>
+                  {field.value ? (
+                    <ImageContainer
+                      src={URL.createObjectURL(field.value)}
+                      alt="teste"
+                      className="h-17 w-17 md:h-19 md:w-19"
+                    />
+                  ) : (
+                    <ImageFormView />
+                  )}
 
-                  <FormControl className="w-[200px]">
-                    <Input
-                      id="picture"
-                      type="file"
-                      accept="image/*"
+                  <FormControl className="w-[200px] cursor-pointer">
+                    <ButtonFileInput
                       onChange={(e) => {
                         const file = e.target.files?.[0];
                         if (file) {
                           field.onChange(file);
                         }
                       }}
-                    />
+                    >
+                      Adicionar uma foto
+                    </ButtonFileInput>
                   </FormControl>
                 </div>
               </FormItem>

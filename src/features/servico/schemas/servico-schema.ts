@@ -14,9 +14,7 @@ export const servicoSchema = z.object({
       (file) => ["image/jpeg", "image/png", "image/gif"].includes(file.type),
       "Apenas JPG, PNG ou GIF",
     ),
-  profissionais: z
-    .array(z.string().uuid().min(1, "Seleciona um profissional"))
-    .optional(),
+  profissionais: z.array(z.string().uuid()).optional(),
 });
 
 export type ServicoFormInput = z.input<typeof servicoSchema>;

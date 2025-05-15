@@ -14,13 +14,13 @@ export default function ImageContainer({
   return (
     <Image
       className={cn(
-        "h-[40px] w-[40px] rounded-full md:h-[50px] md:w-[50px]",
+        "h-10 w-10 rounded-full object-cover md:h-13 md:w-13",
         className,
       )}
       src={src}
       alt={alt}
-      width={200}
-      height={200}
+      width={256}
+      height={256}
     />
   );
 }
