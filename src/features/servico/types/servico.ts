@@ -1,9 +1,9 @@
 export type ServicoType = {
   id: string;
   nome: string;
+  preco: number;
+  duracao: number;
   descricao: string;
-  duracao: string;
-  preco: string;
   imagem_url: string;
   profissionais: string[];
 };

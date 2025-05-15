@@ -26,9 +26,14 @@ import ButtonCancel from "@/components/ui/buttons/button-cancel";
 import { useServico } from "@/features/servico/hooks/use-servico";
 import { fileToBase64 } from "@/lib/utils/file-to-base";
 import { ButtonFileInput } from "@/components/ui/buttons/button-file-input";
+import { useEffect } from "react";
 
 export function NovoServicoForm() {
   const { adicionaServico, servicos } = useServico();
+
+  useEffect(() => {
+    console.log("Serviço adicionado", servicos);
+  }, [servicos]);
 
   const form = useForm<ServicoFormInput>({
     resolver: zodResolver(servicoSchema),
@@ -43,19 +48,27 @@ export function NovoServicoForm() {
 
   async function onSubmit(data: ServicoFormValues) {
     try {
+      const preco = parseFloat(data.preco);
+      const duracao = parseInt(data.duracao, 10);
+
+      if (isNaN(preco) || preco <= 0) {
+        throw new Error("Preço inválido");
+      }
+      if (isNaN(duracao) || duracao <= 0) {
+        throw new Error("Duracao insuficiente");
+      }
       const imagem_url = await fileToBase64(data.imagem);
 
       const servicoAdicionado = adicionaServico({
         nome: data.nome,
-        preco: data.preco,
-        duracao: data.duracao,
+        preco: preco,
+        duracao: duracao,
         descricao: data.descricao,
         imagem_url,
         profissionais: data.profissionais || [],
       });
 
       console.log(servicoAdicionado);
-      console.log(servicos);
     } catch (e) {
       console.error("Erro ao adicionar serviço:", e);
     }

@@ -12,7 +12,7 @@ export function useServico() {
       id: Math.random().toString(36).substring(2, 9),
     };
 
-    setServicos([...servicos, novoServicoComId]);
+    setServicos((prevServicos) => [...prevServicos, novoServicoComId]);
     return novoServicoComId;
   };
 
