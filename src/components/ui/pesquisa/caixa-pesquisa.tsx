@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/buttons/button";
-import { Input } from "@/components/ui/input";
+import { Input } from "@/components/ui/inputs/input";
 import { MagnifyingGlass } from "@phosphor-icons/react/dist/ssr";
 
 interface CaixaPesquisaProps {

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { ButtonAlter } from "@/components/ui/buttons/button-alter";
 import { Switch } from "@/components/ui/switch";
-import { Input } from "@/components/ui/input";
+import { Input } from "@/components/ui/inputs/input";
 import { NotePencil } from "@phosphor-icons/react/dist/ssr";
 import { ShowStatus } from "@/components/ui/show-status";
 import {

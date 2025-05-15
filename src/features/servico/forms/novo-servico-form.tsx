@@ -14,7 +14,7 @@ import ButtonSave from "@/components/ui/buttons/button-save";
 import ImageContainer from "@/components/ui/imagem/image-container";
 import ImageFormView from "@/components/ui/imagem/image-form-view";
 
-import { Input } from "@/components/ui/input";
+import { Input } from "@/components/ui/inputs/input";
 import {
   ServicoFormValues,
   ServicoFormInput,
@@ -27,6 +27,7 @@ import { useServico } from "@/features/servico/hooks/use-servico";
 import { fileToBase64 } from "@/lib/utils/file-to-base";
 import { ButtonFileInput } from "@/components/ui/buttons/button-file-input";
 import { useEffect } from "react";
+import { InputPreco } from "@/components/ui/inputs/input-preco";
 
 export function NovoServicoForm() {
   const { adicionaServico, servicos } = useServico();
@@ -145,15 +146,7 @@ export function NovoServicoForm() {
                   <FormLabel className="text-texto-status-md md:text-texto-form font-normal">
                     Valor (R$)
                   </FormLabel>
-                  <FormControl>
-                    <Input
-                      {...field}
-                      onChange={(e) => {
-                        const value = e.target.value.replace(/[^0-9,]/g, "");
-                        field.onChange(value);
-                      }}
-                    />
-                  </FormControl>
+                  <InputPreco value={field.value} onChange={field.onChange} />
                 </FormItem>
               )}
             />

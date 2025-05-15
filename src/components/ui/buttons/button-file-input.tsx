@@ -1,4 +1,4 @@
-import { Input } from "@/components/ui/input";
+import { Input } from "@/components/ui/inputs/input";
 import { Button } from "@/components/ui/buttons/button";
 import { UploadSimple } from "@phosphor-icons/react/dist/ssr";
 
