@@ -34,13 +34,7 @@ export default function ListaServicos() {
         ))
       ) : (
         <ListaVazia
-          icone={
-            <Toolbox
-              size={42}
-              className="text-azul-400 md:h-[62px] md:w-[62px]"
-              weight="fill"
-            />
-          }
+          icone={false}
           descricao={listaServicosTranslation("emptyListDescription")}
         />
       )}

@@ -10,46 +10,61 @@ import {
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import ButtonSave from "@/components/ui/buttons/button-save";
-import { Image } from "@phosphor-icons/react/dist/ssr";
-import { ButtonAlter } from "@/components/ui/buttons/button-alter";
+
+import Image from "next/image";
+import ImageFormView from "@/components/ui/imagem/image-form-view";
+
 import { Input } from "@/components/ui/input";
 import {
   ServicoFormValues,
+  ServicoFormInput,
   servicoSchema,
 } from "@/features/servico/schemas/servico-schema";
 import { ListaSelecaoProfissionais } from "@/features/profissional/listas/lista-selecao-profissionais";
 import { profissionais } from "@/data/profissionais";
 import ButtonCancel from "@/components/ui/buttons/button-cancel";
 import { useServico } from "@/features/servico/hooks/use-servico";
+import { fileToBase64 } from "@/lib/utils/file-to-base";
 
 export function NovoServicoForm() {
   const { adicionaServico } = useServico();
 
-  const form = useForm<ServicoFormValues>({
+  const form = useForm<ServicoFormInput>({
     resolver: zodResolver(servicoSchema),
     defaultValues: {
       nome: "",
-      preco: undefined,
-      duracao: undefined,
+      preco: "",
+      duracao: "",
       descricao: "",
-      imagem: undefined,
+      profissionais: [],
     },
   });
 
-  function onSubmit(data: ServicoFormValues) {
-    const servicoAdicionado = adicionaServico({
-      nome: data.nome,
-      preco: Number(data.preco),
-      duracao: Number(data.duracao),
-      descricao: data.descricao,
-      imagem: data.imagem,
-      profissionais: [],
-    });
+  async function onSubmit(data: ServicoFormValues) {
+    try {
+      const imagem_url = await fileToBase64(data.imagem);
+
+      const servicoAdicionado = adicionaServico({
+        nome: data.nome,
+        preco: data.preco,
+        duracao: data.duracao,
+        descricao: data.descricao,
+        imagem_url,
+        profissionais: data.profissionais || [],
+      });
+
+      console.log(servicoAdicionado);
+    } catch (e) {
+      console.error("Erro ao adicionar serviço:", e);
+    }
   }
 
   return (
     <Form {...form}>
-      <form className="flex flex-col gap-[20px]">
+      <form
+        className="flex flex-col gap-[20px]"
+        onSubmit={form.handleSubmit(onSubmit)}
+      >
         <div className="bg-branco-100 flex flex-col gap-[20px] rounded-[20px] p-[30px]">
           <div>
             <h1 className="text-titulo-card-2 md:text-titulo-menu-md">
@@ -59,17 +74,43 @@ export function NovoServicoForm() {
               Registro do novo serviço
             </h2>
           </div>
-          <div className="flex flex-col items-center gap-[12px] md:flex-row md:justify-start">
-            <div className="border-azul-200 text-azul-200 flex h-[72px] w-[72px] items-center justify-center rounded-full border-2">
-              <Image size={30} />
-            </div>
-            <div className="flex flex-col gap-[5px]">
-              <Input id="picture" type="file" placeholder="Adicionar Foto" />
-              <span className="text-texto-lista-sm text-cinza-200">
-                JPG, PGN ou GIF, máximo 1MB
-              </span>
-            </div>
-          </div>
+          <FormField
+            control={form.control}
+            name="imagem"
+            render={({ field }) => (
+              <FormItem>
+                <div className="flex flex-col items-center gap-[12px] md:flex-row md:justify-start">
+                  <div className="flex h-20 w-20 items-center justify-center overflow-auto rounded-full border-2 border-blue-200 text-blue-200">
+                    {field.value ? (
+                      <Image
+                        src={URL.createObjectURL(field.value)}
+                        alt="teste"
+                        width={200}
+                        height={200}
+                      />
+                    ) : (
+                      <ImageFormView />
+                    )}
+                  </div>
+
+                  <FormControl className="w-[200px]">
+                    <Input
+                      id="picture"
+                      type="file"
+                      accept="image/*"
+                      onChange={(e) => {
+                        const file = e.target.files?.[0];
+                        if (file) {
+                          field.onChange(file);
+                        }
+                      }}
+                    />
+                  </FormControl>
+                </div>
+              </FormItem>
+            )}
+          />
+
           <div className="flex flex-col gap-[20px] md:grid md:grid-cols-2">
             <FormField
               control={form.control}
@@ -94,7 +135,13 @@ export function NovoServicoForm() {
                     Valor (R$)
                   </FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Input
+                      {...field}
+                      onChange={(e) => {
+                        const value = e.target.value.replace(/[^0-9,]/g, "");
+                        field.onChange(value);
+                      }}
+                    />
                   </FormControl>
                 </FormItem>
               )}
@@ -108,7 +155,13 @@ export function NovoServicoForm() {
                     Duracao (minutos)
                   </FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Input
+                      {...field}
+                      onChange={(e) => {
+                        const value = e.target.value.replace(/\D/g, "");
+                        field.onChange(value);
+                      }}
+                    />
                   </FormControl>
                 </FormItem>
               )}
