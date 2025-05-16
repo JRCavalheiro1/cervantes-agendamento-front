@@ -63,7 +63,7 @@ export function ListaSelecaoProfissionais({
         ))
       ) : (
         <ListaVazia
-          icone={true}
+          icone={false}
           descricao="Não há profissionais cadastrados no momento"
         />
       )}

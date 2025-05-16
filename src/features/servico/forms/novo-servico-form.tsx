@@ -11,6 +11,7 @@ import {
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import ButtonSave from "@/components/ui/buttons/button-save";
+import ButtonCancel from "@/components/ui/buttons/button-cancel";
 
 import ImageContainer from "@/components/ui/imagem/image-container";
 import ImageFormView from "@/components/ui/imagem/image-form-view";
@@ -23,7 +24,6 @@ import {
 } from "@/features/servico/schemas/servico-schema";
 import { ListaSelecaoProfissionais } from "@/features/profissional/listas/lista-selecao-profissionais";
 import { profissionais } from "@/data/profissionais";
-import ButtonCancel from "@/components/ui/buttons/button-cancel";
 import { useServico } from "@/features/servico/hooks/use-servico";
 import { fileToBase64 } from "@/lib/utils/file-to-base";
 import { ButtonFileInput } from "@/components/ui/buttons/button-file-input";
@@ -31,18 +31,12 @@ import { useEffect, useState } from "react";
 import { InputPreco } from "@/components/ui/inputs/input-preco";
 import { ModalConcluido } from "@/components/ui/modais/modal-concluido";
 import { useRouter } from "next/navigation";
+import { ModalAlerta } from "@/components/ui/modais/modal-alerta";
 
 export function NovoServicoForm() {
   const { adicionaServico, servicos } = useServico();
   const [modalAviso, setModalAviso] = useState(false);
-
-  useEffect(() => {
-    if (modalAviso) {
-      const timer = setTimeout(() => setModalAviso(false), 2000);
-      return () => clearTimeout(timer);
-    }
-    console.log("Serviço adicionado", servicos);
-  }, [modalAviso, servicos]);
+  const router = useRouter();
 
   const form = useForm<ServicoFormInput>({
     resolver: zodResolver(servicoSchema),
@@ -54,12 +48,12 @@ export function NovoServicoForm() {
       profissionais: [],
     },
   });
-  const {
-    handleSubmit,
-    reset,
-    control,
-    formState: { errors },
-  } = form;
+  const { handleSubmit, reset, control } = form;
+
+  function cancelarServico() {
+    reset();
+    router.back();
+  }
 
   async function onSubmit(data: ServicoFormValues) {
     try {
@@ -84,6 +78,17 @@ export function NovoServicoForm() {
       console.error("Erro ao adicionar serviço:", e);
     }
   }
+
+  useEffect(() => {
+    if (modalAviso) {
+      const timer = setTimeout(() => {
+        setModalAviso(false);
+        router.back();
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+    console.log("Serviço adicionado", servicos);
+  }, [modalAviso, servicos, router]);
 
   return (
     <Form {...form}>
@@ -209,14 +214,22 @@ export function NovoServicoForm() {
           profissionais={profissionais}
         />
         <div className="flex justify-end gap-[10px]">
-          <ButtonCancel>Cancelar</ButtonCancel>
+          <ModalAlerta
+            onClick={() => cancelarServico()}
+            title="Você tem certeza?"
+          >
+            Você tem certeza de que deseja cancelar o cadastro? As informações
+            preenchidas serão perdidas.
+          </ModalAlerta>
           <ButtonSave type="submit">Cadastrar Serviço</ButtonSave>
         </div>
       </form>
 
-      <ModalConcluido open={modalAviso} onOpenChange={setModalAviso}>
-        Serviço Cadastrado com sucesso!
-      </ModalConcluido>
+      {modalAviso && (
+        <ModalConcluido open={modalAviso} onOpenChange={setModalAviso}>
+          Serviço Cadastrado com sucesso!
+        </ModalConcluido>
+      )}
     </Form>
   );
 }
