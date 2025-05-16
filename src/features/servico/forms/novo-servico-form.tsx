@@ -134,7 +134,7 @@ export function NovoServicoForm() {
             )}
           />
 
-          <div className="flex flex-col gap-[5px] md:grid md:grid-cols-2 md:gap-[10px]">
+          <div className="flex flex-col gap-[10px] md:grid md:grid-cols-2 md:gap-[10px]">
             <FormField
               control={control}
               name="nome"
