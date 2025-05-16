@@ -197,3 +197,11 @@
     overflow-y: auto;
 }
 
+.msg-error {
+    color: var(--color-vermelho-300);
+    font-size: var(--text-texto-lista-sm);
+}
+.msg-error-md {
+    color: var(--color-vermelho-300);
+    font-size: var(--text-texto-card-lg);
+}

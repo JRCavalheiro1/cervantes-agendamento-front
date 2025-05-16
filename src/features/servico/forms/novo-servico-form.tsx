@@ -80,10 +80,10 @@ export function NovoServicoForm() {
   return (
     <Form {...form}>
       <form
-        className="flex flex-col gap-[10px]"
+        className="flex flex-col gap-[20px]"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <div className="bg-branco-100 flex flex-col gap-[20px] rounded-[20px] p-[30px]">
+        <div className="bg-branco-100 flex flex-col gap-[20px] rounded-[20px] border p-[30px]">
           <div>
             <h1 className="text-titulo-card-2 md:text-titulo-menu-md">
               Informações do serviço
@@ -126,7 +126,7 @@ export function NovoServicoForm() {
             )}
           />
 
-          <div className="flex flex-col gap-[30px] md:grid md:grid-cols-2">
+          <div className="flex flex-col gap-[5px] md:grid md:grid-cols-2 md:gap-[10px]">
             <FormField
               control={control}
               name="nome"
