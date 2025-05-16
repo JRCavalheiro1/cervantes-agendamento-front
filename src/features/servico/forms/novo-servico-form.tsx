@@ -27,15 +27,22 @@ import ButtonCancel from "@/components/ui/buttons/button-cancel";
 import { useServico } from "@/features/servico/hooks/use-servico";
 import { fileToBase64 } from "@/lib/utils/file-to-base";
 import { ButtonFileInput } from "@/components/ui/buttons/button-file-input";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { InputPreco } from "@/components/ui/inputs/input-preco";
+import { ModalConcluido } from "@/components/ui/modais/modal-concluido";
+import { useRouter } from "next/navigation";
 
 export function NovoServicoForm() {
   const { adicionaServico, servicos } = useServico();
+  const [modalAviso, setModalAviso] = useState(false);
 
   useEffect(() => {
+    if (modalAviso) {
+      const timer = setTimeout(() => setModalAviso(false), 2000);
+      return () => clearTimeout(timer);
+    }
     console.log("Serviço adicionado", servicos);
-  }, [servicos]);
+  }, [modalAviso, servicos]);
 
   const form = useForm<ServicoFormInput>({
     resolver: zodResolver(servicoSchema),
@@ -70,6 +77,7 @@ export function NovoServicoForm() {
         profissionais: data.profissionais || [],
       });
 
+      setModalAviso(true);
       console.log(servicoAdicionado);
       reset();
     } catch (e) {
@@ -83,7 +91,7 @@ export function NovoServicoForm() {
         className="flex flex-col gap-[20px]"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <div className="bg-branco-100 flex flex-col gap-[20px] rounded-[20px] border p-[30px]">
+        <div className="bg-branco-100 flex flex-col gap-[20px] rounded-[20px] p-[30px]">
           <div>
             <h1 className="text-titulo-card-2 md:text-titulo-menu-md">
               Informações do serviço
@@ -205,6 +213,10 @@ export function NovoServicoForm() {
           <ButtonSave type="submit">Cadastrar Serviço</ButtonSave>
         </div>
       </form>
+
+      <ModalConcluido open={modalAviso} onOpenChange={setModalAviso}>
+        Serviço Cadastrado com sucesso!
+      </ModalConcluido>
     </Form>
   );
 }

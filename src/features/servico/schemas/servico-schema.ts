@@ -17,7 +17,7 @@ export const servicoSchema = z.object({
     .min(10, "A descrição deve ter pelo menos 10 caracteres"),
   imagem: z
     .instanceof(File, { message: "A Imagem é obrigatória" })
-    .refine((file) => file.size < 1024 * 1024, "Tamanho máximo de 1MB")
+    .refine((file) => file.size < 10 * 1024 * 1024, "Tamanho máximo de 1MB")
     .refine(
       (file) => ["image/jpeg", "image/png", "image/gif"].includes(file.type),
       "Apenas JPG, PNG ou GIF",
