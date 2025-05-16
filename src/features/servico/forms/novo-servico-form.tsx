@@ -47,7 +47,12 @@ export function NovoServicoForm() {
       profissionais: [],
     },
   });
-  const { handleSubmit, reset, control } = form;
+  const {
+    handleSubmit,
+    reset,
+    control,
+    formState: { errors },
+  } = form;
 
   async function onSubmit(data: ServicoFormValues) {
     try {
@@ -75,7 +80,7 @@ export function NovoServicoForm() {
   return (
     <Form {...form}>
       <form
-        className="flex flex-col gap-[20px]"
+        className="flex flex-col gap-[10px]"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="bg-branco-100 flex flex-col gap-[20px] rounded-[20px] p-[30px]">
@@ -121,7 +126,7 @@ export function NovoServicoForm() {
             )}
           />
 
-          <div className="flex flex-col gap-[20px] md:grid md:grid-cols-2">
+          <div className="flex flex-col gap-[30px] md:grid md:grid-cols-2">
             <FormField
               control={control}
               name="nome"
@@ -142,7 +147,7 @@ export function NovoServicoForm() {
               control={control}
               name="preco"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="">
                   <FormLabel className="text-texto-status-md md:text-texto-form font-normal">
                     Valor (R$)
                   </FormLabel>
@@ -157,7 +162,7 @@ export function NovoServicoForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-texto-status-md md:text-texto-form font-normal">
-                    Duracao (minutos)
+                    Duração (minutos)
                   </FormLabel>
                   <FormControl>
                     <Input
