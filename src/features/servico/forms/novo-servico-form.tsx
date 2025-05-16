@@ -6,6 +6,7 @@ import {
   FormField,
   FormItem,
   FormLabel,
+  FormMessage,
 } from "@/components/ui/form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -46,18 +47,13 @@ export function NovoServicoForm() {
       profissionais: [],
     },
   });
+  const { handleSubmit, reset, control } = form;
 
   async function onSubmit(data: ServicoFormValues) {
     try {
       const preco = parseFloat(data.preco);
       const duracao = parseInt(data.duracao, 10);
 
-      if (isNaN(preco) || preco <= 0) {
-        throw new Error("Preço inválido");
-      }
-      if (isNaN(duracao) || duracao <= 0) {
-        throw new Error("Duracao insuficiente");
-      }
       const imagem_url = await fileToBase64(data.imagem);
 
       const servicoAdicionado = adicionaServico({
@@ -70,6 +66,7 @@ export function NovoServicoForm() {
       });
 
       console.log(servicoAdicionado);
+      reset();
     } catch (e) {
       console.error("Erro ao adicionar serviço:", e);
     }
@@ -79,7 +76,7 @@ export function NovoServicoForm() {
     <Form {...form}>
       <form
         className="flex flex-col gap-[20px]"
-        onSubmit={form.handleSubmit(onSubmit)}
+        onSubmit={handleSubmit(onSubmit)}
       >
         <div className="bg-branco-100 flex flex-col gap-[20px] rounded-[20px] p-[30px]">
           <div>
@@ -91,7 +88,7 @@ export function NovoServicoForm() {
             </h2>
           </div>
           <FormField
-            control={form.control}
+            control={control}
             name="imagem"
             render={({ field }) => (
               <FormItem>
@@ -118,6 +115,7 @@ export function NovoServicoForm() {
                       Adicionar uma foto
                     </ButtonFileInput>
                   </FormControl>
+                  <FormMessage />
                 </div>
               </FormItem>
             )}
@@ -125,21 +123,23 @@ export function NovoServicoForm() {
 
           <div className="flex flex-col gap-[20px] md:grid md:grid-cols-2">
             <FormField
-              control={form.control}
+              control={control}
               name="nome"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-texto-status-md md:text-texto-form font-normal">
                     Nome
+                    <span>{}</span>
                   </FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Input {...field} type="text" />
                   </FormControl>
+                  <FormMessage />
                 </FormItem>
               )}
             />
             <FormField
-              control={form.control}
+              control={control}
               name="preco"
               render={({ field }) => (
                 <FormItem>
@@ -147,11 +147,12 @@ export function NovoServicoForm() {
                     Valor (R$)
                   </FormLabel>
                   <InputPreco value={field.value} onChange={field.onChange} />
+                  <FormMessage />
                 </FormItem>
               )}
             />
             <FormField
-              control={form.control}
+              control={control}
               name="duracao"
               render={({ field }) => (
                 <FormItem>
@@ -160,6 +161,7 @@ export function NovoServicoForm() {
                   </FormLabel>
                   <FormControl>
                     <Input
+                      type="number"
                       {...field}
                       onChange={(e) => {
                         const value = e.target.value.replace(/\D/g, "");
@@ -167,11 +169,12 @@ export function NovoServicoForm() {
                       }}
                     />
                   </FormControl>
+                  <FormMessage />
                 </FormItem>
               )}
             />
             <FormField
-              control={form.control}
+              control={control}
               name="descricao"
               render={({ field }) => (
                 <FormItem>
@@ -179,8 +182,9 @@ export function NovoServicoForm() {
                     Descrição
                   </FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Input {...field} type="text" />
                   </FormControl>
+                  <FormMessage />
                 </FormItem>
               )}
             />
@@ -188,7 +192,7 @@ export function NovoServicoForm() {
         </div>
 
         <ListaSelecaoProfissionais
-          control={form.control}
+          control={control}
           profissionais={profissionais}
         />
         <div className="flex justify-end gap-[10px]">
