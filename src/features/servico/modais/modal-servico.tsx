@@ -1,9 +1,9 @@
-import { ServicosProps } from "@/data/servicos";
 import ModalContainer from "@/components/ui/modais/modal-container";
 import { EditaServicoForm } from "@/features/servico/forms/edita-servico-form";
+import { ServicoType } from "@/features/servico/types/servico";
 
 interface ModalServicoProps {
-  servico: ServicosProps;
+  servico: ServicoType;
   open: boolean;
   onClose: () => void;
 }

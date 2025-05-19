@@ -6,7 +6,7 @@ interface ModalContainer {
   open: boolean;
   onClose: () => void;
   children: React.ReactNode;
-  className: string;
+  className?: string;
 }
 
 export default function ModalContainer({

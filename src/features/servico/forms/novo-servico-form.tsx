@@ -67,7 +67,7 @@ export function NovoServicoForm() {
         duracao: duracao,
         descricao: data.descricao,
         imagem,
-        empresaId: "ceac0677-0ee9-4cb9-a0a1-46fc5074b876",
+        empresaId: "d9545b57-e22a-4a78-9dfe-12c73217e9b3",
       };
 
       setModalAviso(true);

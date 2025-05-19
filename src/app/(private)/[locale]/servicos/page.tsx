@@ -1,6 +1,6 @@
 import Header from "@/components/layout/header";
 import { useTranslations } from "next-intl";
-import ListaServicos from "@/features/servico/listas/lista-servicos";
+import { ListaServicos } from "@/features/servico/listas/lista-servicos";
 import CaixaPesquisa from "@/components/ui/pesquisa/caixa-pesquisa";
 import { ButtonNew } from "@/components/ui/buttons/button-new";
 

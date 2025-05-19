@@ -1,8 +1,8 @@
-import { ServicosProps } from "@/data/servicos";
 import Image from "next/image";
+import { ServicoType } from "@/features/servico/types/servico";
 
 interface EditaServicoFormProps {
-  servico: ServicosProps;
+  servico: ServicoType;
 }
 export function EditaServicoForm({ servico }: EditaServicoFormProps) {
   const { nome, imagem } = servico;

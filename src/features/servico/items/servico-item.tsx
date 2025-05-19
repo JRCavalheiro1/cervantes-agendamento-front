@@ -1,8 +1,8 @@
-import { ServicosProps } from "@/data/servicos";
 import Image from "next/image";
 import { NotePencil } from "@phosphor-icons/react/dist/ssr";
+import { ServicoType } from "@/features/servico/types/servico";
 
-interface ServicoItemProps extends ServicosProps {
+interface ServicoItemProps extends ServicoType {
   onClick?: () => void;
 }
 
@@ -11,7 +11,7 @@ export function ServicoItem({ nome, imagem, onClick }: ServicoItemProps) {
     <div className="flex items-center justify-between">
       <div className="text-texto-status-md md:text-texto-card-xl flex items-center gap-[10px]">
         <Image
-          src={imagem}
+          src="/"
           alt="foto servico"
           width={200}
           height={200}
