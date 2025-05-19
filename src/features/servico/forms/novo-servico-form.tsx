@@ -11,7 +11,6 @@ import {
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import ButtonSave from "@/components/ui/buttons/button-save";
-import ButtonCancel from "@/components/ui/buttons/button-cancel";
 
 import ImageContainer from "@/components/ui/imagem/image-container";
 import ImageFormView from "@/components/ui/imagem/image-form-view";
@@ -24,7 +23,6 @@ import {
 } from "@/features/servico/schemas/servico-schema";
 import { ListaSelecaoProfissionais } from "@/features/profissional/listas/lista-selecao-profissionais";
 import { profissionais } from "@/data/profissionais";
-import { useServico } from "@/features/servico/hooks/use-servico";
 import { fileToBase64 } from "@/lib/utils/file-to-base";
 import { ButtonFileInput } from "@/components/ui/buttons/button-file-input";
 import { useEffect, useState } from "react";
@@ -32,9 +30,10 @@ import { InputPreco } from "@/components/ui/inputs/input-preco";
 import { ModalConcluido } from "@/components/ui/modais/modal-concluido";
 import { useRouter } from "next/navigation";
 import { ModalAlerta } from "@/components/ui/modais/modal-alerta";
+import { adicionaServico } from "@/services/servicos/adiciona-servico";
+import { ServicoType } from "@/features/servico/types/servico";
 
 export function NovoServicoForm() {
-  const { adicionaServico, servicos } = useServico();
   const [modalAviso, setModalAviso] = useState(false);
   const router = useRouter();
 
@@ -60,20 +59,22 @@ export function NovoServicoForm() {
       const preco = parseFloat(data.preco);
       const duracao = parseInt(data.duracao, 10);
 
-      const imagem_url = await fileToBase64(data.imagem);
+      const imagem = await fileToBase64(data.imagem);
 
-      const servicoAdicionado = adicionaServico({
+      const dadosNovoServico: ServicoType = {
         nome: data.nome,
         preco: preco,
         duracao: duracao,
         descricao: data.descricao,
-        imagem_url,
-        profissionais: data.profissionais || [],
-      });
+        imagem,
+        empresaId: "ceac0677-0ee9-4cb9-a0a1-46fc5074b876",
+      };
 
       setModalAviso(true);
-      console.log(servicoAdicionado);
+      const servicoAdicionadoResponse = await adicionaServico(dadosNovoServico);
+
       reset();
+      console.log("Serviço adicionado com sucesso", servicoAdicionadoResponse);
     } catch (e) {
       console.error("Erro ao adicionar serviço:", e);
     }
@@ -87,8 +88,7 @@ export function NovoServicoForm() {
       }, 2000);
       return () => clearTimeout(timer);
     }
-    console.log("Serviço adicionado", servicos);
-  }, [modalAviso, servicos, router]);
+  }, [modalAviso, router]);
 
   return (
     <Form {...form}>
