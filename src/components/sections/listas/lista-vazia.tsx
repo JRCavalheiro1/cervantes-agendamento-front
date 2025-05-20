@@ -1,13 +1,25 @@
 import { UsersFour } from "@phosphor-icons/react/dist/ssr";
+import { cn } from "@/lib/utils";
 
 interface ListaVaziaProps {
   icone?: boolean;
   descricao: string;
   children?: React.ReactNode;
+  className?: string;
 }
-export function ListaVazia({ icone, descricao, children }: ListaVaziaProps) {
+export function ListaVazia({
+  icone,
+  descricao,
+  children,
+  className,
+}: ListaVaziaProps) {
   return (
-    <div className="flex h-100 flex-col items-center justify-center gap-[20px]">
+    <div
+      className={cn(
+        "flex h-100 flex-col items-center justify-center gap-[20px]",
+        className,
+      )}
+    >
       {icone ? (
         <div className="bg-azul-200 flex h-[64px] w-[64px] items-center justify-center rounded-full md:h-[94px] md:w-[94px]">
           <UsersFour

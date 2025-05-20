@@ -20,6 +20,7 @@ import { ButtonFileInput } from "@/components/ui/buttons/button-file-input";
 import { useForm } from "react-hook-form";
 import {
   ServicoFormInput,
+  ServicoFormValues,
   servicoSchema,
 } from "@/features/servico/schemas/servico-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -27,12 +28,15 @@ import { InputPreco } from "@/components/ui/inputs/input-preco";
 import { profissionais } from "@/data/profissionais";
 import { ListaSelecaoProfissionais } from "@/features/profissional/listas/lista-selecao-profissionais";
 import ButtonCancel from "@/components/ui/buttons/button-cancel";
+import { fileToBase64 } from "@/lib/utils/file-to-base";
+import { adicionaServico } from "@/services/servicos/adiciona-servico";
+import { editaServico } from "@/services/servicos/edita-servico";
 
 interface EditaServicoFormProps {
   servico: ServicoType;
 }
 export function EditaServicoForm({ servico }: EditaServicoFormProps) {
-  const { nome, imagem, preco, duracao, descricao } = servico;
+  const { id, nome, imagem, preco, duracao, descricao } = servico;
 
   const form = useForm<ServicoFormInput>({
     resolver: zodResolver(servicoSchema),
@@ -45,10 +49,40 @@ export function EditaServicoForm({ servico }: EditaServicoFormProps) {
     },
   });
 
+  async function onSubmit(data: ServicoFormValues) {
+    try {
+      const preco = parseFloat(data.preco);
+      const duracao = parseInt(data.duracao, 10);
+      let novaImagem = imagem;
+
+      if (data.imagem instanceof File) {
+        novaImagem = await fileToBase64(data.imagem);
+      }
+
+      const dadosServicoAtualizado: ServicoType = {
+        id: id,
+        nome: data.nome,
+        preco: preco,
+        duracao: duracao,
+        descricao: data.descricao,
+        imagem: novaImagem,
+        empresaId: "d9545b57-e22a-4a78-9dfe-12c73217e9b3",
+      };
+
+      const servicoAtualizado = await editaServico(dadosServicoAtualizado);
+
+      console.log("Servico atualizado", servicoAtualizado);
+    } catch (e) {
+      console.error("Erro ao adicionar serviço:", e);
+    }
+  }
   const { control } = form;
   return (
     <Form {...form}>
-      <form className="flex flex-col gap-[10px]">
+      <form
+        className="flex flex-col gap-[10px]"
+        onSubmit={form.handleSubmit(onSubmit)}
+      >
         <div className="flex flex-col gap-[20px]">
           <FormField
             control={form.control}

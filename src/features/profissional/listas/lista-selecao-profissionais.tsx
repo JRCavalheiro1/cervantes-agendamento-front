@@ -67,6 +67,7 @@ export function ListaSelecaoProfissionais({
         <ListaVazia
           icone={false}
           descricao="Não há profissionais cadastrados no momento"
+          className="h-[100px]"
         />
       )}
     </ListaContainer>

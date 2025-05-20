@@ -11,7 +11,7 @@ export interface ProfissionalProps {
 }
 
 export const profissionais: ProfissionalProps[] = [
-  {
+  /*{
     id: "2",
     nome: "Kauã",
     email: "kaua@gmail.com",
@@ -32,5 +32,5 @@ export const profissionais: ProfissionalProps[] = [
     agendaAberta: "disponivel",
     horarios: ["08:00", "16:00"],
     servicos: ["Corte Masculino"],
-  },
+  },*/
 ];

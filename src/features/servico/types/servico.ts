@@ -5,5 +5,6 @@ export type ServicoType = {
   duracao?: number;
   descricao?: string;
   imagem: string;
+  profissionalId?: string;
   empresaId?: string;
 };
