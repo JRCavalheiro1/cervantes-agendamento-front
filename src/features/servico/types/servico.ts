@@ -1,4 +1,5 @@
 export type ServicoType = {
+  id?: string;
   nome: string;
   preco?: number;
   duracao?: number;

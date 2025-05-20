@@ -6,12 +6,13 @@ import { ServicoItem } from "@/features/servico/items/servico-item";
 import { useModal } from "@/hooks/utils/use-modal";
 import { ModalServico } from "@/features/servico/modais/modal-servico";
 import { ServicoType } from "@/features/servico/types/servico";
+import { servicos } from "@/data/servicos";
 import { useState, useEffect } from "react";
 import { getServicos } from "@/services/servicos/get-servicos";
 
 export default function ListaServicosUi() {
   const listaServicosTranslation = useTranslations("Services");
-  const [servicos, setServicos] = useState<ServicoType[]>([]);
+  //const [servicos, setServicos] = useState<ServicoType[]>([]);
 
   const {
     itemSelecionado: servicoSelecionado,
@@ -19,18 +20,20 @@ export default function ListaServicosUi() {
     abreModal,
     fechaModal,
   } = useModal<ServicoType>();
-  const empresaId = "d9545b57-e22a-4a78-9dfe-12c73217e9b3";
-  useEffect(() => {
+
+  //const ID_EMPRESA = "d9545b57-e22a-4a78-9dfe-12c73217e9b3";
+
+  /*useEffect(() => {
     async function fecthServicos() {
       try {
-        const data = await getServicos(empresaId);
+        const data = await getServicos(ID_EMPRESA);
         setServicos(data);
       } catch (error) {
         console.error("Erro ao buscar serviços:", error);
       }
     }
     fecthServicos();
-  }, []);
+  }, []);*/
 
   return (
     <ListaContainer
@@ -39,7 +42,7 @@ export default function ListaServicosUi() {
     >
       {servicos.length > 0 ? (
         servicos.map((servico) => (
-          <li key={servico.nome}>
+          <li key={servico.id}>
             <ServicoItem
               nome={servico.nome}
               imagem={servico.imagem}

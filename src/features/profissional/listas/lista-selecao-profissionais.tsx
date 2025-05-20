@@ -15,16 +15,18 @@ import ImageContainer from "@/components/ui/imagem/image-container";
 interface ListaSelecaoProfissionaisProps {
   control: any;
   profissionais: ProfissionalProps[];
+  className?: string;
 }
 
 export function ListaSelecaoProfissionais({
   control,
   profissionais,
+  className,
 }: ListaSelecaoProfissionaisProps) {
   return (
     <ListaContainer
-      titulo="Profissionais"
-      subtitulo="Selecione os profissionais que realizam este serviço"
+      titulo="Profissionais que realizam este serviço"
+      className={className}
     >
       {profissionais.length > 0 ? (
         profissionais.map((profissional) => (

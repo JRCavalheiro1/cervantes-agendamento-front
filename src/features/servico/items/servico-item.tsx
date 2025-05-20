@@ -11,7 +11,7 @@ export function ServicoItem({ nome, imagem, onClick }: ServicoItemProps) {
     <div className="flex items-center justify-between">
       <div className="text-texto-status-md md:text-texto-card-xl flex items-center gap-[10px]">
         <Image
-          src="/"
+          src={imagem || "undefined"}
           alt="foto servico"
           width={200}
           height={200}

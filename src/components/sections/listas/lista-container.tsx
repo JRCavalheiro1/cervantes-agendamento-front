@@ -1,8 +1,8 @@
 import { cn } from "@/lib/utils";
 
 type ListaContainerProps = {
-  titulo: string;
-  subtitulo: string;
+  titulo?: string;
+  subtitulo?: string;
   children: React.ReactNode;
   className?: string;
 };
@@ -20,13 +20,13 @@ export default function ListaContainer({
       )}
     >
       <div>
-        <h1 className="text-texto-card-xl md:text-titulo-card-sm">{titulo}</h1>
+        <h1 className="text-texto-form md:text-titulo-card-2">{titulo}</h1>
         <h2 className="text-texto-lista md:text-texto-card-xl text-cinza-300">
           {subtitulo}
         </h2>
       </div>
       <div>
-        <ul className="flex flex-col gap-[20px] md:gap-[30px]">{children}</ul>
+        <ul className="flex flex-col gap-[12px] md:gap-[20px]">{children}</ul>
       </div>
     </div>
   );
