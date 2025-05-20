@@ -10,13 +10,16 @@ export function ServicoItem({ nome, imagem, onClick }: ServicoItemProps) {
   return (
     <div className="flex items-center justify-between">
       <div className="text-texto-status-md md:text-texto-card-xl flex items-center gap-[10px]">
-        <Image
-          src={imagem || "undefined"}
-          alt="foto servico"
-          width={200}
-          height={200}
-          className="h-[40px] w-[40px] rounded-full md:h-[50px] md:w-[50px]"
-        />
+        {imagem && (
+          <Image
+            src={imagem}
+            alt="foto servico"
+            width={200}
+            height={200}
+            className="h-[40px] w-[40px] rounded-full md:h-[50px] md:w-[50px]"
+            unoptimized
+          />
+        )}
         <span>{nome}</span>
       </div>
 

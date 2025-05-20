@@ -4,6 +4,6 @@ export type ServicoType = {
   preco?: number;
   duracao?: number;
   descricao?: string;
-  imagem?: string;
+  imagem: string;
   empresaId?: string;
 };
