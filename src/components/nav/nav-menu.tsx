@@ -18,37 +18,37 @@ import Link from "next/link";
 
 export default function NavMenu() {
   const [modalAberto, setModalAberto] = useState<boolean>(false);
-  const translationNav = useTranslations("NavMenu");
+  const t = useTranslations("NavMenu");
 
   const menuItens = [
     {
       id: 1,
       icone: <House size={24} weight="fill" />,
-      titulo: `${translationNav("homePageLink")}`,
+      titulo: `${t("homePageLink")}`,
       link: "/",
     },
     {
       id: 2,
       icone: <Toolbox size={24} weight="fill" />,
-      titulo: `${translationNav("serviceLink")}`,
+      titulo: `${t("serviceLink")}`,
       link: "servicos",
     },
     {
       id: 3,
       icone: <UsersFour size={24} weight="fill" />,
-      titulo: `${translationNav("professionalLink")}`,
+      titulo: `${t("professionalLink")}`,
       link: "profissionais",
     },
     {
       id: 4,
       icone: <CalendarBlank size={24} weight="fill" />,
-      titulo: `${translationNav("appointmentsLink")}`,
+      titulo: `${t("appointmentsLink")}`,
       link: "agendamentos",
     },
     {
       id: 5,
       icone: <Gear size={24} weight="fill" />,
-      titulo: `${translationNav("settingsLink")}`,
+      titulo: `${t("settingsLink")}`,
       link: "configuracoes",
     },
   ];
@@ -104,7 +104,7 @@ export default function NavMenu() {
           <ul className="flex flex-col gap-[10px]">
             <SelecionaIdioma />
             <li className="text-texto-card-xl text-cinza-300 hover:text-vermelho-100 flex w-fit cursor-pointer items-center">
-              {translationNav("logoutLink")} <SignOut width={24} />
+              {t("logoutLink")} <SignOut width={24} />
             </li>
           </ul>
         </div>

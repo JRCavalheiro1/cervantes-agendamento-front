@@ -9,7 +9,7 @@ import ModalAgendamento from "@/features/agendamento/modais/modal-agendamento";
 import { ListaVazia } from "@/components/sections/listas/lista-vazia";
 
 export default function ListaAgendamentosRecentes() {
-  const translationAppointList = useTranslations("RecentAppointmentsList");
+  const t = useTranslations("RecentAppointmentsList");
   const {
     itemSelecionado: agendamentoSelecionado,
     modalAberto,
@@ -18,8 +18,8 @@ export default function ListaAgendamentosRecentes() {
   } = useModal<AgendamentoProps>();
   return (
     <ListaContainer
-      titulo={translationAppointList("title")}
-      subtitulo={translationAppointList("subtitle")}
+      titulo={t("title")}
+      subtitulo={t("subtitle")}
       className="min-w-[352px] xl:w-[30%]"
     >
       {agendamentos.length > 0 ? (
@@ -31,9 +31,7 @@ export default function ListaAgendamentosRecentes() {
           );
         })
       ) : (
-        <ListaVazia
-          descricao={translationAppointList("emptyListDescription")}
-        />
+        <ListaVazia descricao={t("emptyListDescription")} />
       )}
       {modalAberto && agendamentoSelecionado && (
         <ModalAgendamento

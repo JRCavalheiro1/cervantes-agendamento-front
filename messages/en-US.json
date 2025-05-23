@@ -22,6 +22,10 @@
     "emptyListDescription": "There are no professionals registered at the moment",
     "linkAddNow": "Add one now"
   },
+  "SelectProfessionalList": {
+    "title": "Professionals who perform this service",
+    "descriptionEmptyList": "There are no professionals registered at this time"
+  },
   "Status": {
     "available": "available",
     "busy": "busy",
@@ -40,16 +44,30 @@
     "emailClient": "Email",
     "service": "Service",
     "nameProfessional": "Professional",
-    "dateHour": "Date/Hour"
+    "dateHour": "Date/Hour",
+    "btnConfirm": "Confirm",
+    "btnCancel": "Cancel"
   },
   "Services": {
     "title": "Services",
     "subtitle": "List of services offered by the company",
     "emptyListDescription": "There are no services registered at this time"
   },
+  "ServiceForm": {
+    "title": "Informations Service",
+    "subtitle": "Register new service",
+    "name": "Name",
+    "description": "Description",
+    "price": "Value (R$)",
+    "duration": "Duration (minutes)"
+  },
   "ServicesList": {
     "title": "Services",
     "subtitle": "Company services list"
+  },
+  "Professional": {
+    "active": "Active in the company",
+    "inactive": "Inactive in the company"
   },
   "EditProfessionalForm": {
     "buttonAlter": "Change Photo",
@@ -67,5 +85,22 @@
     "selectALanguage": "Select a language",
     "portuguese": "portuguese",
     "english": "english"
+  },
+  "Modal": {
+    "alertModalBtnCancel": "Cancel",
+    "alertModalBtnContinue": "Continue",
+    "alertModalTitle": "Are you sure?",
+    "alertModalDescription": "Are you sure you want to cancel registration? All entered information will be lost",
+    "completedModalTitle": "Service successfully registered!"
+  },
+  "Button": {
+    "btnSave": "Save",
+    "btnCancel": "Cancel",
+    "btnConfirm": "Confirma",
+    "btnContinue": "Continue",
+    "btnAlterImage": "Change photo",
+    "btnAddImagem": "Add Photo",
+    "btnConfirmAppointment": "Confirm Appointment",
+    "btnRegisterService": "Register Service"
   }
 }

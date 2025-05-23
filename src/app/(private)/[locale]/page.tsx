@@ -12,31 +12,31 @@ import ListaAgendamentosRecentes from "@/features/agendamento/listas/lista-agend
 import { useTranslations } from "next-intl";
 
 export default function PaginaInicial() {
-  const tranlationHeader = useTranslations("HomePage");
-  const tranlationCard = useTranslations("InfoCard");
+  const tHeader = useTranslations("HomePage");
+  const tCard = useTranslations("InfoCard");
   return (
     <div className="flex flex-col">
-      <Header titulo={tranlationHeader("title")} />
+      <Header titulo={tHeader("title")} />
       <div className="flex w-full flex-col gap-[20px]">
         <div className="grid grid-cols-2 gap-[20px] xl:grid-cols-4">
           <InfoCard
             icone={<Check size="40" />}
-            descricao={tranlationCard("appointmentsToday")}
+            descricao={tCard("appointmentsToday")}
             total="12"
           />
           <InfoCard
             icone={<TrendUp size="40" />}
-            descricao={tranlationCard("appointmentsWeek")}
+            descricao={tCard("appointmentsWeek")}
             total="53"
           />
           <InfoCard
             icone={<CalendarBlank size="40" />}
-            descricao={tranlationCard("appointmentsMonth")}
+            descricao={tCard("appointmentsMonth")}
             total="134"
           />
           <InfoCard
             icone={<Clock size="40" weight="fill" color="#ffffff" />}
-            descricao={tranlationCard("averageServiceTime")}
+            descricao={tCard("averageServiceTime")}
             total="42min"
             cardAzul={true}
           />

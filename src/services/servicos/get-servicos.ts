@@ -2,7 +2,7 @@ import { ServicoType } from "@/features/servico/types/servico";
 
 export async function getServicos(): Promise<ServicoType[]> {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/Servico/empresa/d9545b57-e22a-4a78-9dfe-12c73217e9b3`,
+    `${process.env.NEXT_PUBLIC_API_URL}/api/Servico/empresa/4e139f96-df26-4f22-840f-89310c7af080`,
     {
       cache: "no-cache",
     },

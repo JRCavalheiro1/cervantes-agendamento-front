@@ -10,7 +10,7 @@ import { useState, useEffect } from "react";
 import { getServicos } from "@/services/servicos/get-servicos";
 
 export default function ListaServicosUi() {
-  const listaServicosTranslation = useTranslations("Services");
+  const t = useTranslations("Services");
   const [servicos, setServicos] = useState<ServicoType[]>([]);
 
   const {
@@ -36,10 +36,7 @@ export default function ListaServicosUi() {
   }, []);
 
   return (
-    <ListaContainer
-      titulo={listaServicosTranslation("title")}
-      subtitulo={listaServicosTranslation("subtitle")}
-    >
+    <ListaContainer titulo={t("title")} subtitulo={t("subtitle")}>
       {servicos.length > 0 ? (
         servicos.map((servico) => (
           <li key={servico.id}>
@@ -51,10 +48,7 @@ export default function ListaServicosUi() {
           </li>
         ))
       ) : (
-        <ListaVazia
-          icone={false}
-          descricao={listaServicosTranslation("emptyListDescription")}
-        />
+        <ListaVazia icone={false} descricao={t("emptyListDescription")} />
       )}
       {modalAberto && servicoSelecionado && (
         <ModalServico

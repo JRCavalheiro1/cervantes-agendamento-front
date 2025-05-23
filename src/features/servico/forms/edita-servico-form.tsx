@@ -31,12 +31,16 @@ import ButtonCancel from "@/components/ui/buttons/button-cancel";
 import { fileToBase64 } from "@/lib/utils/file-to-base";
 import { adicionaServico } from "@/services/servicos/adiciona-servico";
 import { editaServico } from "@/services/servicos/edita-servico";
+import { useTranslations } from "next-intl";
 
 interface EditaServicoFormProps {
   servico: ServicoType;
 }
 export function EditaServicoForm({ servico }: EditaServicoFormProps) {
   const { id, nome, imagem, preco, duracao, descricao } = servico;
+
+  const tBtn = useTranslations("Button");
+  const t = useTranslations("ServiceForm");
 
   const form = useForm<ServicoFormInput>({
     resolver: zodResolver(servicoSchema),
@@ -66,7 +70,7 @@ export function EditaServicoForm({ servico }: EditaServicoFormProps) {
         duracao: duracao,
         descricao: data.descricao,
         imagem: novaImagem,
-        empresaId: "d9545b57-e22a-4a78-9dfe-12c73217e9b3",
+        empresaId: "4e139f96-df26-4f22-840f-89310c7af080",
       };
 
       const servicoAtualizado = await editaServico(dadosServicoAtualizado);
@@ -113,7 +117,7 @@ export function EditaServicoForm({ servico }: EditaServicoFormProps) {
                         }
                       }}
                     >
-                      Alterar foto
+                      {tBtn("btnAlterImage")}
                     </ButtonFileInput>
                   </FormControl>
                   <FormMessage />
@@ -133,7 +137,7 @@ export function EditaServicoForm({ servico }: EditaServicoFormProps) {
             render={({ field }) => (
               <FormItem>
                 <FormLabel className="text-texto-status-md md:text-texto-form font-normal">
-                  Nome
+                  {t("name")}
                   <span>{}</span>
                 </FormLabel>
                 <FormControl>
@@ -149,7 +153,7 @@ export function EditaServicoForm({ servico }: EditaServicoFormProps) {
             render={({ field }) => (
               <FormItem className="">
                 <FormLabel className="text-texto-status-md md:text-texto-form font-normal">
-                  Valor (R$)
+                  {t("price")}
                 </FormLabel>
                 <InputPreco value={field.value} onChange={field.onChange} />
                 <FormMessage />
@@ -162,7 +166,7 @@ export function EditaServicoForm({ servico }: EditaServicoFormProps) {
             render={({ field }) => (
               <FormItem>
                 <FormLabel className="text-texto-status-md md:text-texto-form font-normal">
-                  Duração (minutos)
+                  {t("duration")}
                 </FormLabel>
                 <FormControl>
                   <Input
@@ -184,7 +188,7 @@ export function EditaServicoForm({ servico }: EditaServicoFormProps) {
             render={({ field }) => (
               <FormItem>
                 <FormLabel className="text-texto-status-md md:text-texto-form font-normal">
-                  Descrição
+                  {t("description")}
                 </FormLabel>
                 <FormControl>
                   <Input
@@ -205,9 +209,9 @@ export function EditaServicoForm({ servico }: EditaServicoFormProps) {
         </div>
 
         <div className="flex justify-end gap-[10px]">
-          <ButtonCancel>Cancelar</ButtonCancel>
+          <ButtonCancel>{tBtn("btnCancel")}</ButtonCancel>
           <ButtonSave className="w-[78px] md:w-[120px]" type="submit">
-            Salvar
+            {tBtn("btnSave")}
           </ButtonSave>
         </div>
       </form>

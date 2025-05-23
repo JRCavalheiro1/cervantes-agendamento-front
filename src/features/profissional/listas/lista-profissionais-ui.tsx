@@ -24,12 +24,12 @@ export default function ListaProfissionaisUi({
     fechaModal,
   } = useModal<ProfissionalProps>();
 
-  const translationListaProf = useTranslations("ProfessionalList");
+  const t = useTranslations("ProfessionalList");
 
   return (
     <ListaContainer
-      titulo={translationListaProf("title")}
-      subtitulo={translationListaProf("subtitle")}
+      titulo={t("title")}
+      subtitulo={t("subtitle")}
       className="xl:flex-1"
     >
       {profissionais.length > 0 ? (
@@ -45,15 +45,12 @@ export default function ListaProfissionaisUi({
           );
         })
       ) : (
-        <ListaVazia
-          icone={true}
-          descricao={translationListaProf("emptyListDescription")}
-        >
+        <ListaVazia icone={true} descricao={t("emptyListDescription")}>
           <Link
             className="text-azul-300 text-texto-lista md:text-texto-form"
             href="/profissionais"
           >
-            {translationListaProf("linkAddNow")}
+            {t("linkAddNow")}
           </Link>
         </ListaVazia>
       )}

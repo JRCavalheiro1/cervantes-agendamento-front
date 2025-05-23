@@ -2,6 +2,7 @@ import { NotePencil } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import { ProfissionalProps } from "@/data/profissionais";
 import { ShowStatus } from "@/components/ui/show-status";
+import { useTranslations } from "next-intl";
 
 interface ProfissionalItemProps extends ProfissionalProps {
   onClick?: () => void;
@@ -17,7 +18,8 @@ export default function ProfissionalItem({
   onClick,
   variant,
 }: ProfissionalItemProps) {
-  const emAtividade = ativo ? "Ativo na empresa" : "Inativo na empresa";
+  const t = useTranslations("Professional");
+  const emAtividade = ativo ? t("active") : t("inactive");
   return (
     <div className="text-texto-card-sm md:text-texto-card-xl flex items-center justify-between p-[5px]">
       <div className="flex gap-[10px]">

@@ -33,9 +33,7 @@ export default function ModalAgendamento({
     status,
   } = agendamento;
 
-  const translationModalAgendamento = useTranslations(
-    "ConfirmAppointmentModal",
-  );
+  const t = useTranslations("ConfirmAppointmentModal");
   return (
     <Dialog open={open} onOpenChange={onClose}>
       <DialogContent className="min-w-[362px] gap-[40px] rounded-[35px] p-[30px] md:min-w-[420px]">
@@ -45,30 +43,30 @@ export default function ModalAgendamento({
         <DialogHeader>
           <div className="flex items-center justify-between">
             <DialogTitle className="text-titulo-card-2 md:text-titulo-card-sm font-normal">
-              {translationModalAgendamento("title")}
+              {t("title")}
             </DialogTitle>
             <Trash className="text-cinza-500" size={24} weight="bold" />
           </div>
         </DialogHeader>
         <div className="text-texto-status-md md:text-texto-form flex flex-col gap-[40px]">
           <div className="text- flex justify-between">
-            <span>{translationModalAgendamento("nameClient")}</span>
+            <span>{t("nameClient")}</span>
             <span className="text-cinza-500">{nomeCliente}</span>
           </div>
           <div className="flex justify-between">
-            <span>{translationModalAgendamento("emailClient")}</span>
+            <span>{t("emailClient")}</span>
             <span className="text-cinza-500">{emailCliente}</span>
           </div>
           <div className="flex justify-between">
-            <span>{translationModalAgendamento("service")}</span>
+            <span>{t("service")}</span>
             <span className="text-cinza-500">{servico.join(", ")}</span>
           </div>
           <div className="flex justify-between">
-            <span>{translationModalAgendamento("nameProfessional")}</span>
+            <span>{t("nameProfessional")}</span>
             <span className="text-cinza-500">{profissional}</span>
           </div>
           <div className="flex justify-between">
-            <span>{translationModalAgendamento("dateHour")}</span>
+            <span>{t("dateHour")}</span>
             <span className="text-cinza-500">
               {data} - {hora}
             </span>
@@ -79,8 +77,8 @@ export default function ModalAgendamento({
           </div>
         </div>
         <div className="gap flex items-center justify-end gap-[10px]">
-          <ButtonSave>Cancelar</ButtonSave>
-          <ButtonSave>Confirmar Agendamento</ButtonSave>
+          <ButtonSave>{t("btnConfirm")}</ButtonSave>
+          <ButtonSave>{t("btnCancel")}</ButtonSave>
         </div>
       </DialogContent>
     </Dialog>

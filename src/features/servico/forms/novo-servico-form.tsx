@@ -32,10 +32,15 @@ import { useRouter } from "next/navigation";
 import { ModalAlerta } from "@/components/ui/modais/modal-alerta";
 import { adicionaServico } from "@/services/servicos/adiciona-servico";
 import { ServicoType } from "@/features/servico/types/servico";
+import { useTranslations } from "next-intl";
 
 export function NovoServicoForm() {
   const [modalAviso, setModalAviso] = useState(false);
   const router = useRouter();
+
+  const t = useTranslations("ServiceForm");
+  const tModal = useTranslations("Modal");
+  const tBtn = useTranslations("Button");
 
   const form = useForm<ServicoFormInput>({
     resolver: zodResolver(servicoSchema),
@@ -67,7 +72,7 @@ export function NovoServicoForm() {
         duracao: duracao,
         descricao: data.descricao,
         imagem,
-        empresaId: "d9545b57-e22a-4a78-9dfe-12c73217e9b3",
+        empresaId: "4e139f96-df26-4f22-840f-89310c7af080",
       };
 
       setModalAviso(true);
@@ -99,10 +104,10 @@ export function NovoServicoForm() {
         <div className="bg-branco-100 flex flex-col gap-[20px] rounded-[20px] p-[30px]">
           <div>
             <h1 className="text-titulo-card-2 md:text-titulo-menu-md">
-              Informações do serviço
+              {t("title")}
             </h1>
             <h2 className="text-texto-lista md:text-texto-card-xl text-cinza-500">
-              Registro do novo serviço
+              {t("subtitle")}
             </h2>
           </div>
           <FormField
@@ -130,7 +135,7 @@ export function NovoServicoForm() {
                         }
                       }}
                     >
-                      Adicionar uma foto
+                      {tBtn("btnAddImagem")}
                     </ButtonFileInput>
                   </FormControl>
                   <FormMessage />
@@ -146,7 +151,7 @@ export function NovoServicoForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-texto-status-md md:text-texto-form font-normal">
-                    Nome
+                    {t("name")}
                     <span>{}</span>
                   </FormLabel>
                   <FormControl>
@@ -162,7 +167,7 @@ export function NovoServicoForm() {
               render={({ field }) => (
                 <FormItem className="">
                   <FormLabel className="text-texto-status-md md:text-texto-form font-normal">
-                    Valor (R$)
+                    {t("price")}
                   </FormLabel>
                   <InputPreco value={field.value} onChange={field.onChange} />
                   <FormMessage />
@@ -175,7 +180,7 @@ export function NovoServicoForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-texto-status-md md:text-texto-form font-normal">
-                    Duração (minutos)
+                    {t("duration")}
                   </FormLabel>
                   <FormControl>
                     <Input
@@ -197,7 +202,7 @@ export function NovoServicoForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-texto-status-md md:text-texto-form font-normal">
-                    Descrição
+                    {t("description")}
                   </FormLabel>
                   <FormControl>
                     <Input {...field} type="text" />
@@ -216,18 +221,17 @@ export function NovoServicoForm() {
         <div className="flex justify-end gap-[10px]">
           <ModalAlerta
             onClick={() => cancelarServico()}
-            title="Você tem certeza?"
+            title={tModal("alertModalTitle")}
           >
-            Você tem certeza de que deseja cancelar o cadastro? As informações
-            preenchidas serão perdidas.
+            {tModal("alertModalDescription")}
           </ModalAlerta>
-          <ButtonSave type="submit">Cadastrar Serviço</ButtonSave>
+          <ButtonSave type="submit">{tBtn("btnRegisterService")}</ButtonSave>
         </div>
       </form>
 
       {modalAviso && (
         <ModalConcluido open={modalAviso} onOpenChange={setModalAviso}>
-          Serviço Cadastrado com sucesso!
+          {tModal("completedModalTitle")}
         </ModalConcluido>
       )}
     </Form>

@@ -66,8 +66,8 @@ export function EditaProfissionalForm({
       agendaAberta,
     });
   }
-  const translationEditaProf = useTranslations("EditProfessionalForm");
-
+  const t = useTranslations("EditProfessionalForm");
+  const tBtn = useTranslations("Button");
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -84,9 +84,9 @@ export function EditaProfissionalForm({
             </div>
 
             <div className="flex flex-col items-center">
-              <ButtonAlter>{translationEditaProf("buttonAlter")}</ButtonAlter>
+              <ButtonAlter>{t("buttonAlter")}</ButtonAlter>
               <span className="text-texto-lista-sm text-cinza-200 md:text-texto-lista">
-                {translationEditaProf("sizePhoto")}
+                {t("sizePhoto")}
               </span>
             </div>
           </div>
@@ -96,9 +96,7 @@ export function EditaProfissionalForm({
                 {nome}
               </h1>
               <h2 className="text-texto-status-md md:text-titulo-card-2 text-cinza-500">
-                {ativo
-                  ? translationEditaProf("activeInTheCompany")
-                  : translationEditaProf("inActiveInTheCompany")}
+                {ativo ? t("activeInTheCompany") : t("inActiveInTheCompany")}
               </h2>
             </div>
 
@@ -115,7 +113,7 @@ export function EditaProfissionalForm({
                     />
                   </FormControl>
                   <FormLabel className="text-texto-lista md:text-texto-form font-normal">
-                    {translationEditaProf("professionalActive")}
+                    {t("professionalActive")}
                   </FormLabel>
                 </FormItem>
               )}
@@ -130,7 +128,7 @@ export function EditaProfissionalForm({
             render={({ field }) => (
               <FormItem>
                 <FormLabel className="text-texto-status-md md:text-texto-form font-normal">
-                  {translationEditaProf("nameLabel")}
+                  {t("nameLabel")}
                 </FormLabel>
                 <FormControl>
                   <Input
@@ -147,7 +145,7 @@ export function EditaProfissionalForm({
             render={({ field }) => (
               <FormItem>
                 <FormLabel className="text-texto-status-md md: md:text-texto-form font-normal">
-                  {translationEditaProf("emailLabel")}
+                  {t("emailLabel")}
                 </FormLabel>
                 <FormControl>
                   <Input
@@ -165,7 +163,7 @@ export function EditaProfissionalForm({
             render={({ field }) => (
               <FormItem>
                 <FormLabel className="text-texto-status-md md:text-texto-form font-normal">
-                  {translationEditaProf("phoneLabel")}
+                  {t("phoneLabel")}
                 </FormLabel>
                 <FormControl>
                   <Input className="t text-cinza-500 h-[42px]" {...field} />
@@ -177,7 +175,7 @@ export function EditaProfissionalForm({
 
         <div className="text-texto-status-md md:text-texto-form flex flex-col gap-[10px] md:gap-[20px]">
           <div className="flex flex-col justify-center">
-            <span>{translationEditaProf("timeSlots")}</span>
+            <span>{t("timeSlots")}</span>
             <div className="text-cinza-500 flex items-center gap-[3px]">
               <span>{horarios.join(" às ")}</span>
               <NotePencil size={20} />
@@ -185,7 +183,7 @@ export function EditaProfissionalForm({
           </div>
 
           <div className="flex flex-col justify-center">
-            <span>{translationEditaProf("services")}</span>
+            <span>{t("services")}</span>
             <div className="text-cinza-500 flex items-center gap-[3px]">
               <span>{servicos?.join(", ")}</span>
               <NotePencil size={20} />
@@ -197,7 +195,7 @@ export function EditaProfissionalForm({
             <ShowStatus status={agendaAberta} />
           </div>
         </div>
-        <ButtonSave type="submit">Salvar</ButtonSave>
+        <ButtonSave type="submit">{tBtn("btnSave")}</ButtonSave>
       </form>
     </Form>
   );

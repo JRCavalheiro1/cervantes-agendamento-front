@@ -22,6 +22,10 @@
     "emptyListDescription": "Não há profissionais cadastrados no momento",
     "linkAddNow": "Cadastre um agora"
   },
+  "SelectProfessionalList": {
+    "title": "Profissionais que realizam este serviço",
+    "descriptionEmptyList": "Não há profissionais cadastrados neste momento"
+  },
   "EmptyProfessionalList": {
     "description": "Não há profissionais cadastrados no momento",
     "addNow": "Cadastre um agora"
@@ -44,18 +48,31 @@
     "emailClient": "Email",
     "service": "Serviço",
     "nameProfessional": "Profissional",
-    "dateHour": "Data/Hora"
+    "dateHour": "Data/Hora",
+    "btnConfirm": "Confirmar",
+    "btnCancel": "Cancelar"
   },
   "Services": {
     "title": "Serviços",
     "subtitle": "Lista de serviços oferecidos pela empresa",
     "emptyListDescription": "Não há serviços cadastrados no momento"
   },
+  "ServiceForm": {
+    "title": "Informações do serviço",
+    "subtitle": "Registro do novo serviço",
+    "name": "Nome",
+    "description": "Descrição",
+    "price": "Valor (R$)",
+    "duration": "Duração (minutos)"
+  },
   "ServicesList": {
     "title": "Serviços",
     "subtitle": "Lista de serviços da empresa"
   },
- 
+ "Professional": {
+   "active": "Ativo na empresa",
+   "inactive": "Inativo na empresa"
+ },
   "EditProfessionalForm": {
     "buttonAlter": "Alterar Foto",
     "sizePhoto": "PNG, JPG ou JPEG, máximo 1MB",
@@ -72,5 +89,22 @@
     "selectALanguage": "Selecione um idioma",
     "portuguese": "português",
     "english": "inglês"
+  },
+  "Modal": {
+    "alertModalBtnCancel": "Cancelar",
+    "alertModalBtnContinue": "Continuar",
+    "alertModalTitle": "Você tem certeza?",
+    "alertModalDescription": "Você tem certeza de que deseja cancelar o cadastro? As informações preenchidas serão perdidas.",
+    "completedModalTitle": "Serviço cadastrado com sucesso!"
+  },
+  "Button": {
+    "btnSave": "Salvar",
+    "btnCancel": "Cancelar",
+    "btnConfirm": "Confirmar",
+    "btnContinue": "Continuar",
+    "btnAlterImage": "Alterar Foto",
+    "btnAddImagem": "Adicionar Foto",
+    "btnConfirmAppointment": "Confirmar Agendamento",
+    "btnRegisterService": "Cadastrar Serviço"
   }
 }

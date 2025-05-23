@@ -11,6 +11,7 @@ import { ProfissionalProps } from "@/data/profissionais";
 import ListaContainer from "@/components/sections/listas/lista-container";
 import { ListaVazia } from "@/components/sections/listas/lista-vazia";
 import ImageContainer from "@/components/ui/imagem/image-container";
+import { useTranslations } from "next-intl";
 
 interface ListaSelecaoProfissionaisProps {
   control: any;
@@ -23,11 +24,9 @@ export function ListaSelecaoProfissionais({
   profissionais,
   className,
 }: ListaSelecaoProfissionaisProps) {
+  const t = useTranslations("SelectProfessionalList");
   return (
-    <ListaContainer
-      titulo="Profissionais que realizam este serviço"
-      className={className}
-    >
+    <ListaContainer titulo={t("title")} className={className}>
       {profissionais.length > 0 ? (
         profissionais.map((profissional) => (
           <FormField
@@ -66,7 +65,7 @@ export function ListaSelecaoProfissionais({
       ) : (
         <ListaVazia
           icone={false}
-          descricao="Não há profissionais cadastrados no momento"
+          descricao={t("descriptionEmptyList")}
           className="h-[100px]"
         />
       )}
