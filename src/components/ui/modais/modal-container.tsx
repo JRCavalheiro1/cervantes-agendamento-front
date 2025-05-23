@@ -18,6 +18,7 @@ export default function ModalContainer({
   return (
     <Dialog open={open} onOpenChange={onClose}>
       <DialogContent
+        onInteractOutside={(e) => e.preventDefault()}
         className={cn(
           "min-w-[320px] rounded-[35px] p-[20px] md:min-w-[640px] md:p-[30px]",
           className,

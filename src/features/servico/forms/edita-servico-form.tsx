@@ -32,15 +32,20 @@ import { fileToBase64 } from "@/lib/utils/file-to-base";
 import { adicionaServico } from "@/services/servicos/adiciona-servico";
 import { editaServico } from "@/services/servicos/edita-servico";
 import { useTranslations } from "next-intl";
+import { useState } from "react";
+import { ModalConcluido } from "@/components/ui/modais/modal-concluido";
 
 interface EditaServicoFormProps {
   servico: ServicoType;
+  onClose: () => void;
 }
-export function EditaServicoForm({ servico }: EditaServicoFormProps) {
+export function EditaServicoForm({ servico, onClose }: EditaServicoFormProps) {
   const { id, nome, imagem, preco, duracao, descricao } = servico;
+  const [modalConcluido, setModalConcluido] = useState(false);
 
   const tBtn = useTranslations("Button");
   const t = useTranslations("ServiceForm");
+  const tModal = useTranslations("Modal");
 
   const form = useForm<ServicoFormInput>({
     resolver: zodResolver(servicoSchema),
@@ -74,7 +79,7 @@ export function EditaServicoForm({ servico }: EditaServicoFormProps) {
       };
 
       const servicoAtualizado = await editaServico(dadosServicoAtualizado);
-
+      onClose();
       console.log("Servico atualizado", servicoAtualizado);
     } catch (e) {
       console.error("Erro ao adicionar serviço:", e);
@@ -209,12 +214,18 @@ export function EditaServicoForm({ servico }: EditaServicoFormProps) {
         </div>
 
         <div className="flex justify-end gap-[10px]">
-          <ButtonCancel>{tBtn("btnCancel")}</ButtonCancel>
+          <ButtonCancel onClick={onClose}>{tBtn("btnCancel")}</ButtonCancel>
           <ButtonSave className="w-[78px] md:w-[120px]" type="submit">
             {tBtn("btnSave")}
           </ButtonSave>
         </div>
       </form>
+
+      {modalConcluido && (
+        <ModalConcluido open={modalConcluido} onOpenChange={setModalConcluido}>
+          {tModal("completedModalTitle")}
+        </ModalConcluido>
+      )}
     </Form>
   );
 }

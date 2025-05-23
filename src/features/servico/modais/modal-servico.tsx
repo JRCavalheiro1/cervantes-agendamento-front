@@ -11,7 +11,7 @@ interface ModalServicoProps {
 export function ModalServico({ servico, open, onClose }: ModalServicoProps) {
   return (
     <ModalContainer open={open} onClose={onClose}>
-      <EditaServicoForm servico={servico} />
+      <EditaServicoForm servico={servico} onClose={onClose} />
     </ModalContainer>
   );
 }

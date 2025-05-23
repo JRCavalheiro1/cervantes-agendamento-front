@@ -1,20 +1,16 @@
-"use client";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import {
+  ServicoFormInput,
+  servicoSchema,
+  ServicoFormValues,
+} from "@/features/servico/schemas/servico-schema";
+import { fileToBase64 } from "@/lib/utils/file-to-base";
+import { useCallback } from "react";
 
-import { useState } from "react";
-import { ServicoType } from "@/features/servico/types/servico";
-
-export function useServico() {
-  const [servicos, setServicos] = useState<ServicoType[]>([]);
-
-  const adicionaServico = (novoServico: Omit<ServicoType, "id">) => {
-    const novoServicoComId = {
-      ...novoServico,
-      id: Math.random().toString(36).substring(2, 9),
-    };
-
-    setServicos((prevServicos) => [...prevServicos, novoServicoComId]);
-    return novoServicoComId;
-  };
-
-  return { servicos, adicionaServico };
-}
+type ServicoAPIType = Omit<ServicoFormInput, "preco" | "duracao" | "imagem"> & {
+  preco: number;
+  duracao: number;
+  imagem: string;
+  empresaId: string;
+} & Record<string, any>;
